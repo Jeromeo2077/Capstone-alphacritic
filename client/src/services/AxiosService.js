@@ -5,9 +5,6 @@ import { logger } from '../utils/Logger.js'
 export const api = Axios.create({
   baseURL,
   timeout: 8000,
-  headers:{
-  Authorization: 'Bearer mb606zm0x6bymlggbo5lg4u6zc7u8x'
-  }
 })
 
 api.interceptors.request.use(config => config, handleAxiosError)
