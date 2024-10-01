@@ -7,10 +7,7 @@ class GamesService {
 async  getAllGames() {
     const response = await api.post('/games')
     logger.log(response.data)
-    
-
-}
-
+ }
 }
 
 export const gamesService = new GamesService()
