@@ -37,8 +37,13 @@ async function getAllGames() {
   <div class="container">
     <div class="row">
       <h2>Popular Games</h2>
-      <div v-for="game in games" :key="game.id" class="col-6 col-md-4">
-        {{ game.name }}
+      <div v-for="game in games" :key="game.id" class="col-6 col-md-4 g-3">
+        <div class="card" style="width: 18rem;">
+          <img :src="game.background_image" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ game.name }}</h5>
+          </div>
+        </div>
       </div>
     </div>
   </div>
