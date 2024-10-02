@@ -18,10 +18,10 @@ function toggleTheme() {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark px-3">
+  <nav class="navbar navbar-expand-sm px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="" height="45" />
+        <img alt="logo" src="/src/assets/img/image.png" height="120" />
       </div>
     </router-link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -65,7 +65,11 @@ a:hover {
 
 @media screen and (min-width: 576px) {
   nav {
-    height: 64px;
+    height: 128px;
   }
+}
+
+.navbar {
+  background-color: #0c0c0c;
 }
 </style>
