@@ -41,7 +41,7 @@ async function getAllGames() {
         <div class="card">
           <img :src="game.background_image" class="card-img-top img-fluid" alt="...">
           <div class="card-body">
-            <h5 class="card-title">{{ game.name }}</h5>
+            <h5 class="card-title caudex-bold">{{ game.name }}</h5>
           </div>
         </div>
       </div>
@@ -51,4 +51,10 @@ async function getAllGames() {
 
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.caudex-regular {
+  font-family: "Caudex", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
