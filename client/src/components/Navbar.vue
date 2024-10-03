@@ -32,14 +32,12 @@ function toggleTheme() {
       <ul class="navbar-nav me-auto">
 
         <li>
-          <router-link :to="{ name: 'Games' }" target="_blank"
-            class="btn navbar-link lighten-30 selectable text-uppercase">
+          <router-link :to="{ name: 'Games' }" class="btn navbar-link lighten-30 selectable text-uppercase">
             Games
           </router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'About' }" target="_blank"
-            class="btn navbar-link lighten-30 selectable text-uppercase">
+          <router-link :to="{ name: 'About' }" class="btn navbar-link lighten-30 selectable text-uppercase">
             About
           </router-link>
         </li>
