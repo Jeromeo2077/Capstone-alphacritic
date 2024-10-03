@@ -5,15 +5,8 @@ export class GamesController extends BaseController {
   constructor() {
     super('rawgAPI')
     this.router
-      .get('/games', this.getAllGames)
+
   }
 
-  async getAllGames(request, response, next) {
-    try {
-      const games = await gamesService.getAllGames()
-      response.send(games)
-    } catch (error) {
-      next(error)
-    }
-  }
+
 }
