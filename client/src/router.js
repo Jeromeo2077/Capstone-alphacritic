@@ -22,11 +22,6 @@ const routes = [
     component: loadPage('GamesPage')
   },
   {
-    path: '/reviews',
-    name: 'Reviews',
-    component: loadPage('ReviewsPage')
-  },
-  {
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),
