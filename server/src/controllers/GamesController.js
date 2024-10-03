@@ -3,9 +3,9 @@ import BaseController from "../utils/BaseController.js";
 
 export class GamesController extends BaseController {
   constructor() {
-    super("api")
+    super('rawgAPI')
     this.router
-      .get("/games", this.getAllGames)
+      .get('/games', this.getAllGames)
   }
 
   async getAllGames(request, response, next) {
