@@ -5,6 +5,10 @@ import { AppState } from "@/AppState.js"
 
 
 class GamesService {
+async getGameById(gameId) {
+  const response = await rawgAPI.get(`games/${gameId}?key=53049ff41d0844d99012d20c509f0efc`)
+  logger.log(response.data)
+}
 
 async  getAllGames() {
     const response = await rawgAPI.get('games?key=53049ff41d0844d99012d20c509f0efc')
