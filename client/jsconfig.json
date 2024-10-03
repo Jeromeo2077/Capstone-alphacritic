@@ -4,6 +4,9 @@
     "./src/**/*.js"
   ],
   "compilerOptions": {
+    "lib": [
+      "ES2015"
+    ],
     "paths": {
       "@/*": [
         "./src/*"
