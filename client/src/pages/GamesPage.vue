@@ -2,12 +2,23 @@
 import { AppState } from '@/AppState.js';
 import { gamesService } from '@/services/GamesService.js';
 import Pop from '@/utils/Pop.js';
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
 onMounted(() => {
   getAllGames();
 });
+
+
+const filterBy = ref('all')
+
+const gameGenres = [
+  "rpg",
+  "strategy",
+  "shooter",
+  "platformer",
+
+]
 
 const games = computed(() => AppState.games)
 
@@ -30,6 +41,15 @@ async function getGameById(gameID) {
   }
 }
 
+async function getGameByGenre() {
+  try {
+    await gamesService.getGameByGenre()
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
+
 </script>
 
 
@@ -37,7 +57,18 @@ async function getGameById(gameID) {
 
   <div class="container-fluid">
     <div class="row p-3">
+
       <h2>Popular Games</h2>
+      <div class="d-flex">
+        <button>All</button>
+        <button @click="getGameByGenre('rpg')">RPG</button>
+        <button>Shooter</button>
+        <button>Platformer</button>
+        <button>Strategy</button>
+
+
+
+      </div>
       <div v-for="game in games" :key="game.id" class="col-6 col-md-3 g-3 d-flex align-items-stretch">
         <RouterLink :to="{ name: 'GameDetails', params: { gameId: game.id } }">
           <div class="card">
