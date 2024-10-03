@@ -25,7 +25,7 @@ async function getAllGames() {
 <template>
 
   <div class="container-fluid">
-    <div class="row">
+    <div class="row p-3">
       <h2>Popular Games</h2>
       <div v-for="game in games" :key="game.id" class="col-6 col-md-3 g-3 d-flex align-items-stretch">
         <div class="card">
