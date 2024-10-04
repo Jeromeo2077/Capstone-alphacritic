@@ -1,5 +1,6 @@
 import { reactive } from 'vue'
 import { Game } from './models/Game.js'
+import { Review } from "./models/Review.js"
 
 // NOTE AppState is a reactive object to contain app level data
 export const AppState = reactive({
