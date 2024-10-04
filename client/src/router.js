@@ -27,6 +27,11 @@ const routes = [
     component: loadPage('GameDetailsPage')
   },
   {
+    path: '/review/:gameId',
+    name: 'CreateReview',
+    component: loadPage('CreateReviewPage'),
+  },
+  {
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),
