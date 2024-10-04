@@ -9,6 +9,8 @@ const route = useRoute()
 
 const game = computed(() => AppState.activeGame)
 
+const review = computed(() => AppState.reviews)
+
 onMounted(() => {
   getGameById()
 })
@@ -58,8 +60,9 @@ async function getGameById() {
     </section>
     <section class="row">
       <div class="col-md-12">
-        <!-- <RouterLink :to=""></RouterLink> -->
-        <button class="create-btn selectable my-3">CREATE ALPHA REVIEW</button>
+        <RouterLink :to="{ name: 'CreateReview', params: { gameId: game.id } }">
+          <button class="create-btn selectable my-3">CREATE ALPHA REVIEW</button>
+        </RouterLink>
       </div>
     </section>
     <section class="row">
