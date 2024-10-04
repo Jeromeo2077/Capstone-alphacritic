@@ -11,7 +11,7 @@ onMounted(() => {
 
 
 
-const filterBy = ref('all')
+const filterBy = ref('rpg')
 
 const filterCategories = [
   { text: 'all' },
@@ -32,9 +32,9 @@ const gameGenres = [
   "platformer",
   "action",
   "adventure",
-
-
 ]
+
+
 
 const games = computed(() => AppState.games)
 
@@ -75,8 +75,8 @@ async function getGameByGenre(genre) {
     <div class="row p-3">
 
       <h2>Popular Games</h2>
-      <div v-for="genre in gameGenres" :key="genre" class="d-flex">
-        <button>{{ genre }}</button>
+      <div v-for="genre in filterCategories" :key="genre.text" class="">
+        <button @click.prevent="getGameByGenre(genre.text)" type="button">{{ genre.text }}</button>
       </div>
 
 

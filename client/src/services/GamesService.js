@@ -1,13 +1,15 @@
 import { logger } from "@/utils/Logger.js"
-import { api, rawgAPI } from "./AxiosService.js"
+import { rawgAPI } from "./AxiosService.js"
 import { Game } from "@/models/Game.js"
 import { AppState } from "@/AppState.js"
 
 
 class GamesService {
-  async getGameByGenre() {
-    const response = await rawgAPI.get(`genres/?key=53049ff41d0844d99012d20c509f0efc`)
+  async getGameByGenre(genre) {
+    const response = await rawgAPI.get(`games?key=53049ff41d0844d99012d20c509f0efc&genres=${genre}`)
     logger.log('Got games by genres', response.data)
+    const genres = response.data.results.map(genre => new Game(genre))
+    AppState.games = genres
   }
 
   async getGameById(gameId) {
