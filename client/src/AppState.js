@@ -9,8 +9,7 @@ export const AppState = reactive({
   account: null,
   /** @type {Game[]} */
   games: [],
-
-  // /** @type {Game[]} */
-  // genres: []
+  /** @type {Game} */
+  activeGame: null,
 })
 
