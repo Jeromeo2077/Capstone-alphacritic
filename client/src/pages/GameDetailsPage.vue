@@ -36,7 +36,7 @@ async function getGameById() {
       <div class="col-md-5 mt-5">
         <div class="bg-text pb-3 px-3">
           <div class="d-flex flex-column">
-            <span class="fs-4 fw-bold">THE WITCHER 3</span>
+            <span class="fs-4 fw-bold">The Witcher</span>
             <span>Released on: 12/12/24</span>
             <p class="text-small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nesciunt
               praesentium a?
