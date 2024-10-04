@@ -54,6 +54,7 @@ async function getGameById() {
     </section>
     <section class="row">
       <div class="col-md-12">
+        <!-- <RouterLink :to=""></RouterLink> -->
         <button class="create-btn selectable my-3">CREATE ALPHA REVIEW</button>
       </div>
     </section>
