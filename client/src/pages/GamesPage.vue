@@ -73,17 +73,20 @@ async function getGameByGenre(genre) {
       <h2>Popular Games</h2>
       <div class="d-flex justify-content-around align-items-center">
         <div v-for="genre in filterCategories" :key="genre.text">
-          <button @click.prevent="getGameByGenre(genre.text)" class="rounded" type="button">{{ genre.text }}</button>
+          <button @click.prevent="getGameByGenre(genre.text)" class="rounded genre-buttons" type="button">{{
+            genre.text
+          }}</button>
         </div>
       </div>
 
 
 
 
-      <div v-for="filteredGame in games" :key="filteredGame.id" class="col-6 col-md-3 g-3 d-flex align-items-stretch">
+      <div v-for="filteredGame in games" :key="filteredGame.id"
+        class="col-12 col-md-6 col-lg-3 g-3 d-flex align-items-stretch">
         <RouterLink :to="{ name: 'GameDetails', params: { gameId: filteredGame.id } }">
-          <div class="card">
-            <img :src="filteredGame.background_image" class="card-img-top img-fluid" alt="...">
+          <div class="card game-card">
+            <img :src="filteredGame.background_image" class="card-img-top img-fluid game-card-image" alt="...">
             <div class="card-body">
               <h5 class="card-title caudex-bold">{{ filteredGame.name }}</h5>
               <p class="card-text">Release Date: {{ filteredGame.released }}</p>
@@ -98,6 +101,19 @@ async function getGameByGenre(genre) {
 
 <style lang="scss" scoped>
 .genre-buttons {
-  color: #BB0A0A
+  background-color: #BB0A0A;
+  font-weight: bolder;
+  box-shadow: 1px 2px 2px black;
+}
+
+.game-card {
+  box-shadow: 1px 2px 4px black;
+}
+
+.game-card-image {
+  height: 35vh;
+  object-fit: cover;
+  object-position: center;
+  width: 449px;
 }
 </style>
