@@ -3,15 +3,19 @@ import { AppState } from "@/AppState.js";
 import { gamesService } from "@/services/GamesService.js";
 import Pop from "@/utils/Pop.js";
 import { computed, onMounted } from "vue";
+import { useRoute } from "vue-router";
 
+const route = useRoute()
+
+const game = computed(() => AppState.activeGame)
 
 onMounted(() => {
   getGameById()
 })
 
-async function getGameById(gameID) {
+async function getGameById() {
   try {
-    await gamesService.getGameById(gameID);
+    await gamesService.getGameById(route.params.gameId);
   }
   catch (error) {
     Pop.error(error);
@@ -181,8 +185,8 @@ async function getGameById(gameID) {
 
 <style lang="scss" scoped>
 .cover-img {
-  // height: 100%;
-  // width: 100%;
+  height: 50dvh;
+  width: 100%;
   object-fit: cover;
   object-position: center;
 }
