@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
-const ReviewsSchema = new Schema(
+export const ReviewSchema = new Schema(
   {
     creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true },
     gameId: { type: Schema.Types.ObjectId, ref: 'Game', required: true },
@@ -18,7 +18,7 @@ const ReviewsSchema = new Schema(
   { timestamps: true, toJSON: { virtuals: true } }
 )
 
-ReviewsSchema.virtual('creator', {
+ReviewSchema.virtual('creator', {
   localField: 'creatorId',
   foreignField: '_id',
   justOne: true,
