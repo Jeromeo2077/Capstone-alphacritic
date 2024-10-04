@@ -29,9 +29,7 @@ async function getGameById() {
   <div class="container" v-if="game">
     <section class="row">
       <div class="col-md-7 mt-5">
-        <img
-          src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0fGVufDB8fDB8fHwws"
-          class="img-fluid cover-img" alt="">
+        <img :src="game.background_image" class="img-fluid cover-img" alt="">
       </div>
       <div class="col-md-5 mt-5">
         <div class="bg-text pb-3 px-3">
