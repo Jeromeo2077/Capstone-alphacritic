@@ -2,7 +2,7 @@
 import { AppState } from "@/AppState.js";
 import { gamesService } from "@/services/GamesService.js";
 import Pop from "@/utils/Pop.js";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute()
@@ -11,6 +11,10 @@ const game = computed(() => AppState.activeGame)
 
 onMounted(() => {
   getGameById()
+})
+
+onUnmounted(() => {
+  AppState.activeGame = null
 })
 
 async function getGameById() {
