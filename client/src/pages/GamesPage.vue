@@ -10,13 +10,29 @@ onMounted(() => {
 });
 
 
+
 const filterBy = ref('all')
 
+const filterCategories = [
+  { text: 'all' },
+  { text: 'rpg' },
+  { text: 'shooter' },
+  { text: 'strategy' },
+  { text: 'platformer' },
+  { text: 'action' },
+  { text: 'adventure' }
+]
+
+
 const gameGenres = [
+  "all",
   "rpg",
   "strategy",
   "shooter",
   "platformer",
+  "action",
+  "adventure",
+
 
 ]
 
@@ -41,9 +57,9 @@ async function getGameById(gameID) {
   }
 }
 
-async function getGameByGenre() {
+async function getGameByGenre(genre) {
   try {
-    await gamesService.getGameByGenre()
+    await gamesService.getGameByGenre(genre)
   }
   catch (error) {
     Pop.error(error);
@@ -59,16 +75,14 @@ async function getGameByGenre() {
     <div class="row p-3">
 
       <h2>Popular Games</h2>
-      <div class="d-flex">
-        <button>All</button>
-        <button @click="getGameByGenre('rpg')">RPG</button>
-        <button>Shooter</button>
-        <button>Platformer</button>
-        <button>Strategy</button>
-
-
-
+      <div v-for="genre in gameGenres" :key="genre" class="d-flex">
+        <button>{{ genre }}</button>
       </div>
+
+
+
+
+
       <div v-for="game in games" :key="game.id" class="col-6 col-md-3 g-3 d-flex align-items-stretch">
         <RouterLink :to="{ name: 'GameDetails', params: { gameId: game.id } }">
           <div class="card">
