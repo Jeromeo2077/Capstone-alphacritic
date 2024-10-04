@@ -1,5 +1,22 @@
 <script setup>
+import { AppState } from "@/AppState.js";
+import { gamesService } from "@/services/GamesService.js";
+import Pop from "@/utils/Pop.js";
+import { computed, onMounted } from "vue";
 
+
+onMounted(() => {
+  getGameById()
+})
+
+async function getGameById(gameID) {
+  try {
+    await gamesService.getGameById(gameID);
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
 
 </script>
 
