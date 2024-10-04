@@ -26,7 +26,7 @@ async function getGameById() {
 
 
 <template>
-  <div class="container">
+  <div class="container" v-if="game">
     <section class="row">
       <div class="col-md-7 mt-5">
         <img
@@ -36,13 +36,9 @@ async function getGameById() {
       <div class="col-md-5 mt-5">
         <div class="bg-text pb-3 px-3">
           <div class="d-flex flex-column">
-            <span class="fs-4 fw-bold">The Witcher</span>
-            <span>Released on: 12/12/24</span>
-            <p class="text-small mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nesciunt
-              praesentium a?
-              Aperiam molestiae
-              tenetur obcaecati omnis earum non voluptas officiis amet error, voluptate dolorum molestias excepturi
-              voluptatem possimus ea.</p>
+            <span class="fs-4 fw-bold">{{ game.name }}</span>
+            <span>Released on: {{ game.released }}</span>
+            <p class="text-small mt-2">{{ game.description }}</p>
           </div>
           <div>
             <div class="d-flex justify-content-between">
@@ -180,6 +176,7 @@ async function getGameById() {
       </div>
     </section>
   </div>
+  <div v-else>loading.........</div>
 </template>
 
 
