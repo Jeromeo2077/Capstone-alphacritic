@@ -1,5 +1,6 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import GameCard from "@/components/globals/GameCard.vue";
 import { gamesService } from '@/services/GamesService.js';
 import Pop from '@/utils/Pop.js';
 import { computed, onMounted, ref } from 'vue';
@@ -71,6 +72,8 @@ async function getGameByGenre(genre) {
     <div class="row p-3">
 
       <h2>Popular Games</h2>
+
+      <!-- SECTION buttons -->
       <div class="d-flex justify-content-around align-items-center">
         <div v-for="genre in filterCategories" :key="genre.text">
           <button @click.prevent="getGameByGenre(genre.text)" class="rounded genre-buttons" type="button">{{
@@ -81,18 +84,13 @@ async function getGameByGenre(genre) {
 
 
 
-
+      <!-- SECTION Game Card  -->
       <div v-for="filteredGame in games" :key="filteredGame.id"
         class="col-12 col-md-6 col-lg-3 g-3 d-flex align-items-stretch">
         <RouterLink :to="{ name: 'GameDetails', params: { gameId: filteredGame.id } }">
-          <div class="card game-card">
-            <img :src="filteredGame.background_image" class="card-img-top img-fluid game-card-image" alt="...">
-            <div class="card-body">
-              <h5 class="card-title caudex-bold">{{ filteredGame.name }}</h5>
-              <p class="card-text">Release Date: {{ filteredGame.released }}</p>
-            </div>
-          </div>
+          <GameCard :game="filteredGame" />
         </RouterLink>
+
       </div>
     </div>
   </div>
@@ -104,16 +102,5 @@ async function getGameByGenre(genre) {
   background-color: #BB0A0A;
   font-weight: bolder;
   box-shadow: 1px 2px 2px black;
-}
-
-.game-card {
-  box-shadow: 1px 2px 4px black;
-}
-
-.game-card-image {
-  height: 35vh;
-  object-fit: cover;
-  object-position: center;
-  width: 449px;
 }
 </style>
