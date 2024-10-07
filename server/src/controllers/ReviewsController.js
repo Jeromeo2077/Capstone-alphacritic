@@ -1,6 +1,7 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import BaseController from "../utils/BaseController.js";
 import { reviewsService } from "../services/ReviewsService.js";
+import { logger } from "../utils/Logger.js";
 
 export class ReviewsController extends BaseController {
   constructor() {
@@ -31,8 +32,8 @@ export class ReviewsController extends BaseController {
 
   async getReviewByReviewId(request, respond, next) {
     try {
-      const review = await reviewsService.getReviewByReviewId(request.params.reviewId)
-      respond.send(review)
+      const reviewByReviewId = await reviewsService.getReviewByReviewId(request.params.reviewId)
+      respond.send(reviewByReviewId)
 
     } catch (error) {
       next(error);

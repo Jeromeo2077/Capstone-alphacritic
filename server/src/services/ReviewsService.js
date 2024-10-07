@@ -9,20 +9,20 @@ class ReviewsService {
 
 
   async getReviewByReviewId(reviewId) {
-    const review = (await dbContext.Review.findById(reviewId)).populate('creator')
-    return review
+    const reviewByReviewId = (await dbContext.Review.findById(reviewId)).populate('creator')
+    return reviewByReviewId
   }
 
 
   async getReviewByGameId(gameId) {
-    const review = (await dbContext.Review.findById(gameId)).populate('creator')
-    return review
+    const reviewsByGameId = await dbContext.Review.find({ gameId: gameId })
+    return reviewsByGameId
   }
 
 
   async getReviewByCreatorId(creatorId) {
-    const review = await dbContext.Review.findById(creatorId)
-    return review
+    const reviews = await dbContext.Review.findById(creatorId)
+    return reviews
   }
 
 
