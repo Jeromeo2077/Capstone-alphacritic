@@ -6,11 +6,21 @@ import { AppState } from "@/AppState.js"
 class ReviewsService {
 
   // FIXME
-  async getReviewByReviewId(reviewId) {
-    const response = await api.get(`api/reviews/${reviewId}`,)
-    logger.log('getting review by Id', response.data)
-    AppState.activeReview = new Review(response.data)
+  async getReviewsByGameId(gameId) {
+    const response = await api.get(`api/reviews/${gameId}`, gameId)
+    logger.log('getting reviews by game ID', response)
+    const gameReviews = response.data.map(review => new Review(review))
+
+    AppState.gameReviews = gameReviews
+    return gameReviews
   }
+
+  // FIXME
+  // async getReviewByReviewId(reviewId) {
+  //   const response = await api.get(`api/reviews/${reviewId}`,)
+  //   logger.log('getting review by Id', response.data)
+  //   AppState.activeReview = new Review(response.data)
+  // }
 
   async getAllReviews() {
     const response = await api.get('api/reviews')

@@ -1,6 +1,8 @@
 <script setup>
 import { AppState } from "@/AppState.js";
 import { gamesService } from "@/services/GamesService.js";
+import { reviewsService } from "@/services/ReviewsService.js";
+import { logger } from "@/utils/Logger.js";
 import Pop from "@/utils/Pop.js";
 import { computed, onMounted, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
@@ -9,10 +11,11 @@ const route = useRoute()
 
 const game = computed(() => AppState.activeGame)
 
-const review = computed(() => AppState.reviews)
+// const review = computed(() => AppState.reviews)
 
 onMounted(() => {
   getGameById()
+  getReviewsByGameId()
 })
 
 onUnmounted(() => {
@@ -22,6 +25,17 @@ onUnmounted(() => {
 async function getGameById() {
   try {
     await gamesService.getGameById(route.params.gameId);
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
+
+async function getReviewsByGameId() {
+  try {
+    const reviews = await reviewsService.getReviewsByGameId(route.params.gameId)
+    logger.log('getting reviews for this game', reviews)
+    AppState.gameReviews = reviews
   }
   catch (error) {
     Pop.error(error);
