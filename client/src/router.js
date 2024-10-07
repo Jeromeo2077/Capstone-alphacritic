@@ -32,6 +32,11 @@ const routes = [
     component: loadPage('CreateReviewPage'),
   },
   {
+    path: '/review/reviewDetails',
+    name: 'ReviewDetails',
+    component: loadPage('ReviewDetailsPage')
+  },
+  {
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),

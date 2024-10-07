@@ -10,7 +10,7 @@ export const ReviewSchema = new Schema(
     gameplayScore: { type: Number, min: 1, max: 10, required: true },
     storyScore: { type: Number, min: 1, max: 10, required: true },
     graphicsScore: { type: Number, min: 1, max: 10, required: true },
-    alphaScoreAgreggate: { type: Number, min: 1, max: 10, required: true },
+    alphaScoreAggregate: { type: Number, min: 1, max: 10, required: true },
     createdAt: { type: Date, default: Date() },
     isPublished: { type: Boolean, default: false, required: true },
     isPinned: { type: Boolean, default: false, required: true },
