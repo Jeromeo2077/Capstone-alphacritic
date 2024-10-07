@@ -11,10 +11,10 @@ import { ref } from "vue";
 const editableReviewData = ref({
   title: '',
   body: '',
-  gameplayscore: 0,
-  storyscore: 0,
-  graphicsscore: 0,
-  alphascore: 0,
+  gameplayScore: 0,
+  storyScore: 0,
+  graphicsScore: 0,
+  alphaScore: 0,
   alphaScoreAggregate: 0,
 
 })
@@ -22,9 +22,9 @@ function calcAlpha() {
   try {
     const alphaScoreData = editableReviewData.value
 
-    let alphaScoreAggregate = Number(alphaScoreData.storyscore) + Number(alphaScoreData.alphascore) + Number(alphaScoreData.gameplayscore) + Number(alphaScoreData.graphicsscore)
+    let alphaScoreAggregate = Number(alphaScoreData.storyScore) + Number(alphaScoreData.alphaScore) + Number(alphaScoreData.gameplayScore) + Number(alphaScoreData.graphicsScore)
     alphaScoreAggregate = alphaScoreAggregate / 4
-    logger.log(alphaScoreData.storyscore, alphaScoreData.alphascore, alphaScoreData.gameplayscore, alphaScoreData.graphicsscore, alphaScoreAggregate)
+    logger.log(alphaScoreData.storyScore, alphaScoreData.alphaScore, alphaScoreData.gameplayScore, alphaScoreData.graphicsScore, alphaScoreAggregate)
     return alphaScoreAggregate
 
   }
@@ -42,10 +42,10 @@ async function createReview() {
     editableReviewData.value = {
       title: '',
       body: '',
-      gameplayscore: 0,
-      storyscore: 0,
-      graphicsscore: 0,
-      alphascore: 0,
+      gameplayScore: 0,
+      storyScore: 0,
+      graphicsScore: 0,
+      alphaScore: 0,
       alphaScoreAggregate: 0,
     }
     logger.log('you created a review!', createdReview)
