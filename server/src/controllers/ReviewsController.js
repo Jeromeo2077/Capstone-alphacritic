@@ -51,7 +51,8 @@ export class ReviewsController extends BaseController {
 
   async deleteReview(request, respond, next) {
     try {
-      await reviewsService.deleteReview(request.params.reviewId)
+      const reviewToBeDeleted = await reviewsService.deleteReview(request.params.reviewId)
+      respond.send(reviewToBeDeleted)
     } catch (error) {
       next(error);
     }

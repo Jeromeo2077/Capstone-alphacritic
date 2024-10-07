@@ -17,6 +17,7 @@ class ReviewsService {
   async createReview(reviewData) {
     const review = await dbContext.Review.create(reviewData)
     await review.populate('creator')
+    await review.populate('game')
     return review
   }
 
