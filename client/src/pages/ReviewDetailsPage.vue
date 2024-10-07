@@ -31,9 +31,11 @@
             </div>
             <div>
               <span class="fw-bold">GAMEMPLAY SCORE</span>
+              <span class="alphaScore-bg fw-bold mx-3 p-2">8</span>
             </div>
             <div>
               <span class="fw-bold">GRAPHICS SCORE</span>
+              <span class="alphaScore-bg fw-bold mx-3 p-2">8</span>
             </div>
           </div>
         </div>
@@ -41,7 +43,7 @@
     </section>
     <section class="row">
       <div class="col-md-12">
-        <div class="bg-text">
+        <div class="bg-text my-3">
           <p class="p-3">REVIEW BODY - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium perferendis
             consequuntur nulla sunt architecto, iste sed? Est ratione minima odio laborum ea et atque totam rem? Error
             quibusdam possimus temporibus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, tempora
