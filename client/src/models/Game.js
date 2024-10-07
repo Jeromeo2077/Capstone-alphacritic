@@ -8,6 +8,5 @@ export class Game {
     this.platforms = data.platforms
     this.genres = data.genres
     this.short_screenshots = data.short_screenshots
-    this.alphaScoreAggregate = data.alphaScoreAggregate
   }
 }
