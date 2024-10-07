@@ -1,6 +1,29 @@
 <script setup>
+import { reviewsService } from "@/services/ReviewsService.js";
+import Pop from "@/utils/Pop.js";
 
 
+onMounted(() => {
+  getAllReviews()
+})
+
+// async function getReviewByReviewId(){
+//  try {
+
+//  }
+//  catch (error){
+//    Pop.error(error);
+//  } 
+// }
+
+async function getAllReviews() {
+  try {
+    await reviewsService.getAllReviews()
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
 
 
 </script>
