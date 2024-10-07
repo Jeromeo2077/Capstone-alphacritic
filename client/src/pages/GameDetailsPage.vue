@@ -15,7 +15,8 @@ const game = computed(() => AppState.activeGame)
 
 onMounted(() => {
   getGameById()
-  getReviewsByGameId()
+  // FIXME don't use onMounted until back and front end functions are fixed
+  // getReviewsByGameId()
 })
 
 onUnmounted(() => {
