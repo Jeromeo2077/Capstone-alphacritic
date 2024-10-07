@@ -9,7 +9,19 @@ class ReviewsService {
 
 
   async getReviewByReviewId(reviewId) {
-    const review = (await dbContext.Review.findById(reviewId)).populated('creator')
+    const review = (await dbContext.Review.findById(reviewId)).populate('creator')
+    return review
+  }
+
+
+  async getReviewByGameId(gameId) {
+    const review = (await dbContext.Review.findById(gameId)).populate('creator')
+    return review
+  }
+
+
+  async getReviewByCreatorId(creatorId) {
+    const review = await dbContext.Review.findById(creatorId)
     return review
   }
 
@@ -17,9 +29,9 @@ class ReviewsService {
   async createReview(reviewData) {
     const review = await dbContext.Review.create(reviewData)
     await review.populate('creator')
-    await review.populate('game')
     return review
   }
+
 
   deleteReview(reviewId) {
     throw new Error("Method not implemented.")
