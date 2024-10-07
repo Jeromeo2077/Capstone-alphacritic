@@ -10,7 +10,7 @@ export const ReviewSchema = new Schema(
     gameplayScore: { type: Number, min: 1, max: 10, required: true },
     storyScore: { type: Number, min: 1, max: 10, required: true },
     graphicsScore: { type: Number, min: 1, max: 10, required: true },
-    alphaScoreAggregate: { type: Number, min: 1, max: 10, required: true },
+    alphaScoreAggregate: { type: Number, min: 1, max: 10 },
     createdAt: { type: Date, default: Date() },
     isPublished: { type: Boolean, default: false, required: true },
     isPinned: { type: Boolean, default: false, required: true },
@@ -23,4 +23,11 @@ ReviewSchema.virtual('creator', {
   foreignField: '_id',
   justOne: true,
   ref: 'Account'
-})
+}),
+
+  ReviewSchema.virtual('game', {
+    localField: 'gameId',
+    foreignField: '_id',
+    justOne: true,
+    ref: 'Game'
+  })

@@ -3,23 +3,53 @@ import { reviewsService } from "@/services/ReviewsService.js";
 import { logger } from "@/utils/Logger.js";
 import Pop from "@/utils/Pop.js";
 import { ref } from "vue";
+import { useRoute } from "vue-router";
 
 
 
+const route = useRoute()
 
 const editableReviewData = ref({
   title: '',
   body: '',
-  gameplayscore: '',
-  storyscore: '',
-  graphicsscore: '',
-  alphascore: '',
+  gameplayScore: 0,
+  storyScore: 0,
+  graphicsScore: 0,
+  alphaScore: 0,
+  alphaScoreAggregate: 0,
+
 })
+function calcAlpha() {
+  try {
+    const alphaScoreData = editableReviewData.value
+
+    let alphaScoreAggregate = Number(alphaScoreData.storyScore) + Number(alphaScoreData.alphaScore) + Number(alphaScoreData.gameplayScore) + Number(alphaScoreData.graphicsScore)
+    alphaScoreAggregate = alphaScoreAggregate / 4
+    logger.log(alphaScoreData.storyScore, alphaScoreData.alphaScore, alphaScoreData.gameplayScore, alphaScoreData.graphicsScore, alphaScoreAggregate)
+    return alphaScoreAggregate
+
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
 
 async function createReview() {
   try {
+    const gameId = route.params.gameId
     const reviewData = editableReviewData.value
+    reviewData.gameId = gameId
+    reviewData.alphaScoreAggregate = calcAlpha()
     const createdReview = await reviewsService.createReview(reviewData)
+    editableReviewData.value = {
+      title: '',
+      body: '',
+      gameplayScore: 0,
+      storyScore: 0,
+      graphicsScore: 0,
+      alphaScore: 0,
+      alphaScoreAggregate: 0,
+    }
     logger.log('you created a review!', createdReview)
 
 
@@ -50,8 +80,8 @@ async function createReview() {
           minlength="3" maxlength="50" placeholder="Title your review">
       </div>
       <label class="form-label" for="gameplay-score">Gameplay Score</label>
-      <select v-model="editableReviewData.gameplayscore" name="gameplay-score" id="gameplay-score"
-        placeholder="Gameplay Score">Gameplay Score
+      <select v-model="editableReviewData.gameplayScore" class="form-select" name="gameplay-score" id="gameplay-score"
+        placeholder="Gameplay Score" min="1" max="10" required>Gameplay Score
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -64,7 +94,8 @@ async function createReview() {
         <option value="10">10</option>
       </select>
       <label class="form-label" for="story-score">Story Score</label>
-      <select v-model="editableReviewData.storyscore" name="story-score" id="story-score">Story Score
+      <select v-model="editableReviewData.storyScore" class="form-select" name="story-score" id="story-score" min="1"
+        max="10" required>Story Score
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -77,7 +108,8 @@ async function createReview() {
         <option value="10">10</option>
       </select>
       <label class="form-label" for="graphics-score">Graphics Score</label>
-      <select v-model="editableReviewData.graphicsscore" name="graphics-score" id="graphics-score">Graphics Score
+      <select v-model="editableReviewData.graphicsScore" class="form-select" name="graphics-score" id="graphics-score"
+        min="1" max="10" required>Graphics Score
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -90,7 +122,8 @@ async function createReview() {
         <option value="10">10</option>
       </select>
       <label class="form-label" for="alpha-score">Alpha Score</label>
-      <select v-model="editableReviewData.alphascore" name="alpha-score" id="alpha-score">Alpha Score
+      <select v-model="editableReviewData.alphaScore" class="form-select" name="alpha-score" id="alpha-score" min="1"
+        max="10" required>Alpha Score
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -104,8 +137,8 @@ async function createReview() {
       </select>
       <label class="form-label" for="body">Review Body</label>
       <textarea v-model="editableReviewData.body" rows="25" class="w-100 form-control" name="body" maxlength="5000"
-        minlength="3"
-        id="body">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum dignissimos vel cumque libero nesciunt tempore nemo quam, fugit esse dolorum aut veritatis laudantium tempora architecto veniam, quidem eveniet quas deserunt, nam repellendus! Quaerat aut voluptatem praesentium ea error ipsum quidem tempora tenetur! Ut exercitationem officia aliquam minima, harum culpa accusantium.</textarea>
+        minlength="3" id="body" type="text"
+        required>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum dignissimos vel cumque libero nesciunt tempore nemo quam, fugit esse dolorum aut veritatis laudantium tempora architecto veniam, quidem eveniet quas deserunt, nam repellendus! Quaerat aut voluptatem praesentium ea error ipsum quidem tempora tenetur! Ut exercitationem officia aliquam minima, harum culpa accusantium.</textarea>
       <button @submit.prevent="createReview" class="save-button">Save Review</button>
       <button class="publish-button">Publish Review</button>
 
