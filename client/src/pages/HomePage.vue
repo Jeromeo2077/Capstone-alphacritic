@@ -37,7 +37,7 @@ async function getAllReviews() {
   <div class="container">
     <section class="row">
       <div class="col-md-12">
-        <span class="fs-1 fw-bold text-shadow text-light">WELCOME TO THE FRONT LINES</span>
+        <div class="fs-1 fw-bold text-shadow text-light text-center mt-5">WELCOME TO THE FRONT LINES</div>
       </div>
     </section>
     <section class="row">

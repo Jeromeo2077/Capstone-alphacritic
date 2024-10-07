@@ -13,7 +13,7 @@ export class Review {
     this.creator = data.creator
     this.gameId = data.gameId
     this.creatorId = data.creatorId
-
+    // this.reviewId = data.reviewId
     this.alphaScoreAggregate = data.alphaScoreAggregate
   }
 
