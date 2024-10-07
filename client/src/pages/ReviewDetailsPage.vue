@@ -1,4 +1,19 @@
 <script setup>
+import { reviewsService } from "@/services/ReviewsService.js";
+import Pop from "@/utils/Pop.js";
+import { useRoute } from "vue-router";
+
+
+const route = useRoute()
+
+async getReviewByReviewId(){
+  try {
+    await reviewsService.getReviewByReviewId(route.params.reviewId)
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
 
 </script>
 

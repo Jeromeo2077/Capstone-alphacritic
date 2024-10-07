@@ -4,9 +4,12 @@ import { Review } from "@/models/Review.js"
 import { AppState } from "@/AppState.js"
 
 class ReviewsService {
+  getReviewByReviewId(reviewId) {
+    throw new Error("Method not implemented.")
+  }
   async getAllReviews() {
     const response = await api.get('api/reviews')
-    const reviews = response.data.map(reviewData = > new Review(reviewData))
+    const reviews = response.data.map(reviewData => new Review(reviewData))
     logger.log('getting all reviews', response.data)
     AppState.reviews = reviews
   }
