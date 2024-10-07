@@ -2,6 +2,7 @@ import { Schema } from "mongoose";
 
 export const GameSchema = new Schema(
   {
+    _id: { type: String, required: true },
     name: { type: String, minlength: 3, maxlength: 25, required: true },
     description: { type: String, minlength: 3, maxlength: 5000, required: true },
     background_image: { type: String, minlength: 3, maxlength: 1000, required: true },
