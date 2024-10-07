@@ -1,13 +1,14 @@
 <script setup>
+import { AppState } from "@/AppState.js";
 import { reviewsService } from "@/services/ReviewsService.js";
 import Pop from "@/utils/Pop.js";
 import { computed, onMounted } from "vue";
 
-computed
-
 onMounted(() => {
   getAllReviews()
 })
+
+const reviews = computed(() => AppState.reviews)
 
 // async function getReviewByReviewId(){
 //  try {
@@ -56,18 +57,18 @@ async function getAllReviews() {
                 <div class="text-center mt-2 fw-bold">
                   <span class="text-decoration-underline">THIS IS ALPHA</span>
                 </div>
-                <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-                  voluptate
-                  doloribus nostrum
-                  necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
+                <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum fugit incidunt
+                  voluptatum, numquam reprehenderit sequi praesentium recusandae porro assumenda! Architecto pariatur
+                  doloremque deserunt placeat ullam voluptate atque debitis explicabo inventore.</p>
                 <div>October 1, 2024</div>
               </div>
             </div>
-
           </section>
         </div>
       </div>
     </section>
+
+
     <section class="row">
       <div class="col-md-12 mt-5">
         <div class="bg-text p-3">

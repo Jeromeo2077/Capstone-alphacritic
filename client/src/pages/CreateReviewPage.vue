@@ -1,13 +1,13 @@
 <script setup>
-import { AppState } from "@/AppState.js";
+// import { AppState } from "@/AppState.js";
 import { reviewsService } from "@/services/ReviewsService.js";
 import { logger } from "@/utils/Logger.js";
 import Pop from "@/utils/Pop.js";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import { useRoute } from "vue-router";
 
 
-const game = computed(() => AppState.activeGame)
+
 const route = useRoute()
 
 const editableReviewData = ref({
@@ -145,7 +145,7 @@ async function createReview() {
         required>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum dignissimos vel cumque libero nesciunt tempore nemo quam, fugit esse dolorum aut veritatis laudantium tempora architecto veniam, quidem eveniet quas deserunt, nam repellendus! Quaerat aut voluptatem praesentium ea error ipsum quidem tempora tenetur! Ut exercitationem officia aliquam minima, harum culpa accusantium.</textarea>
 
       <div class="d-flex justify-content-around my-3">
-        <button @submit.prevent="createReview" class="save-button">Save Review</button>
+        <button @submit.prevent="createReview" class="save-button">Create Review</button>
         <button class="publish-button">Publish Review</button>
       </div>
 
