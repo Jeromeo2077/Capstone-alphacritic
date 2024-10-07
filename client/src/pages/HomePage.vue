@@ -1,7 +1,9 @@
 <script setup>
 import { reviewsService } from "@/services/ReviewsService.js";
 import Pop from "@/utils/Pop.js";
+import { computed, onMounted } from "vue";
 
+computed
 
 onMounted(() => {
   getAllReviews()
