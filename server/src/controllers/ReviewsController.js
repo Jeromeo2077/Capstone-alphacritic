@@ -10,12 +10,17 @@ export class ReviewsController extends BaseController {
       .get("/:reviewId", this.getReviewById)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createReview)
-      .delete("/:reviewId", this.deleteReview);
+      .delete("/:reviewId", this.deleteReview)
+      .put("/:reviewId", this.saveReview)
+      .put("/:reviewId/publish", this.publishReview)
+
+
   }
 
   async getAllReviews(request, response, next) {
     try {
-      // REVIEW this is the service function that gets all the reviews
+      const reviews = await reviewsService.getAllReviews()
+      response.send(reviews)
 
     } catch (error) {
       next(error);
@@ -24,7 +29,8 @@ export class ReviewsController extends BaseController {
 
   async getReviewById(request, respond, next) {
     try {
-      // REVIEW this is the service function that gets a review by its id
+      const review = await reviewsService.getReviewById(request.params.reviewId)
+      respond.send(review)
 
     } catch (error) {
       next(error);
@@ -33,7 +39,7 @@ export class ReviewsController extends BaseController {
 
   async createReview(request, response, next) {
     try {
-      const reviewData = request.body;
+      const reviewData = await request.body;
       const userInfo = request.userInfo;
       reviewData.creatorId = userInfo.id;
       const review = await reviewsService.createReview(reviewData);
@@ -45,7 +51,24 @@ export class ReviewsController extends BaseController {
 
   async deleteReview(request, respond, next) {
     try {
-      // REVIEW this is the service function that deletes a review
+      await reviewsService.deleteReview(request.params.reviewId)
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async saveReview(request, respond, next) {
+    try {
+      // REVIEW this is the service function that edits a review
+
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async publishReview(request, respond, next) {
+    try {
+      // REVIEW this is the service function that publishes a review
 
     } catch (error) {
       next(error);
