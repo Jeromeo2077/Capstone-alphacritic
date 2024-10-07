@@ -10,12 +10,17 @@ export class ReviewsController extends BaseController {
       .get("/:reviewId", this.getReviewById)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createReview)
-      .delete("/:reviewId", this.deleteReview);
+      .delete("/:reviewId", this.deleteReview)
+      .put("/:reviewId", this.saveReview)
+      .put("/:reviewId/publish", this.publishReview)
+
+
   }
 
   async getAllReviews(request, response, next) {
     try {
-      // REVIEW this is the service function that gets all the reviews
+      const reviews = await reviewsService.getAllReviews()
+      response.send(reviews)
 
     } catch (error) {
       next(error);
@@ -45,7 +50,24 @@ export class ReviewsController extends BaseController {
 
   async deleteReview(request, respond, next) {
     try {
-      // REVIEW this is the service function that deletes a review
+      await reviewsService.deleteReview(request.params.reviewId)
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async saveReview(request, respond, next) {
+    try {
+      // REVIEW this is the service function that edits a review
+
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async publishReview(request, respond, next) {
+    try {
+      // REVIEW this is the service function that publishes a review
 
     } catch (error) {
       next(error);
