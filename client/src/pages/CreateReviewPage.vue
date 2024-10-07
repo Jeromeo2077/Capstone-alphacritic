@@ -3,10 +3,11 @@ import { reviewsService } from "@/services/ReviewsService.js";
 import { logger } from "@/utils/Logger.js";
 import Pop from "@/utils/Pop.js";
 import { ref } from "vue";
+import { useRoute } from "vue-router";
 
 
 
-
+const route = useRoute()
 
 const editableReviewData = ref({
   title: '',
@@ -35,8 +36,9 @@ function calcAlpha() {
 
 async function createReview() {
   try {
-
+    const gameId = route.params.gameId
     const reviewData = editableReviewData.value
+    reviewData.gameId = gameId
     reviewData.alphaScoreAggregate = calcAlpha()
     const createdReview = await reviewsService.createReview(reviewData)
     editableReviewData.value = {
@@ -78,7 +80,7 @@ async function createReview() {
           minlength="3" maxlength="50" placeholder="Title your review">
       </div>
       <label class="form-label" for="gameplay-score">Gameplay Score</label>
-      <select v-model="editableReviewData.gameplayscore" class="form-select" name="gameplay-score" id="gameplay-score"
+      <select v-model="editableReviewData.gameplayScore" class="form-select" name="gameplay-score" id="gameplay-score"
         placeholder="Gameplay Score" min="1" max="10" required>Gameplay Score
         <option value="1">1</option>
         <option value="2">2</option>
@@ -92,7 +94,7 @@ async function createReview() {
         <option value="10">10</option>
       </select>
       <label class="form-label" for="story-score">Story Score</label>
-      <select v-model="editableReviewData.storyscore" class="form-select" name="story-score" id="story-score" min="1"
+      <select v-model="editableReviewData.storyScore" class="form-select" name="story-score" id="story-score" min="1"
         max="10" required>Story Score
         <option value="1">1</option>
         <option value="2">2</option>
@@ -106,7 +108,7 @@ async function createReview() {
         <option value="10">10</option>
       </select>
       <label class="form-label" for="graphics-score">Graphics Score</label>
-      <select v-model="editableReviewData.graphicsscore" class="form-select" name="graphics-score" id="graphics-score"
+      <select v-model="editableReviewData.graphicsScore" class="form-select" name="graphics-score" id="graphics-score"
         min="1" max="10" required>Graphics Score
         <option value="1">1</option>
         <option value="2">2</option>
@@ -120,7 +122,7 @@ async function createReview() {
         <option value="10">10</option>
       </select>
       <label class="form-label" for="alpha-score">Alpha Score</label>
-      <select v-model="editableReviewData.alphascore" class="form-select" name="alpha-score" id="alpha-score" min="1"
+      <select v-model="editableReviewData.alphaScore" class="form-select" name="alpha-score" id="alpha-score" min="1"
         max="10" required>Alpha Score
         <option value="1">1</option>
         <option value="2">2</option>
