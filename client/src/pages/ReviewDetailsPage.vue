@@ -1,26 +1,40 @@
 <script setup>
+import { AppState } from "@/AppState.js";
 import { reviewsService } from "@/services/ReviewsService.js";
 import Pop from "@/utils/Pop.js";
+import { computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
 
 const route = useRoute()
+const review = computed(() => AppState.activeReview)
 
-// async getReviewByReviewId(){
-//   try {
-//     await reviewsService.getReviewByReviewId(route.params.reviewId)
-//   }
-//   catch (error) {
-//     Pop.error(error);
-//   }
-// }
+const thereIsAReview = computed(() => {
+  if (review.value == null) return false
+  if (review.value != null) return true
+  return true
+})
+
+onMounted(() => {
+  getReviewByReviewId()
+})
+
+// FIXME
+async function getReviewByReviewId() {
+  try {
+    await reviewsService.getReviewByReviewId(route.params.reviewId)
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
 
 </script>
 
 
 <template>
   <div class="container">
-    <section class="row">
+    <section v-if="thereIsAReview" class="row">
       <div class="col-md-12">
         <div class="d-flex align-items-center profile-banner-img mt-5 mb-3">
           <div>

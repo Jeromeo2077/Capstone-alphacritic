@@ -44,7 +44,6 @@ export class ReviewsController extends BaseController {
     try {
       const review = await reviewsService.getReviewByGameId(request.params.gameId)
       respond.send(review)
-
     } catch (error) {
       next(error);
     }
