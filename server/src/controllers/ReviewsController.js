@@ -7,7 +7,7 @@ export class ReviewsController extends BaseController {
     super("api/reviews");
     this.router
       .get("", this.getAllReviews)
-      .get("/:reviewId", this.getReviewById)
+      .get("/:reviewId", this.getReviewByReviewId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createReview)
       .delete("/:reviewId", this.deleteReview)
@@ -27,9 +27,9 @@ export class ReviewsController extends BaseController {
     }
   }
 
-  async getReviewById(request, respond, next) {
+  async getReviewByReviewId(request, respond, next) {
     try {
-      const review = await reviewsService.getReviewById(request.params.reviewId)
+      const review = await reviewsService.getReviewByReviewId(request.params.reviewId)
       respond.send(review)
 
     } catch (error) {
