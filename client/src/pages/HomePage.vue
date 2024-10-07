@@ -61,60 +61,7 @@ async function getAllReviews() {
                 <div>October 1, 2024</div>
               </div>
             </div>
-            <div class="col-md-3 text-scale-down">
-              <div class="bg-text my-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-                  <div class="alphaScore-bg text-center">
-                    <span class="fs-3 fw-bold">8</span>
-                  </div>
-                </div>
-                <div class="text-center mt-2 fw-bold">
-                  <span class="text-decoration-underline">THIS IS ALPHA</span>
-                </div>
-                <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-                  voluptate
-                  doloribus nostrum
-                  necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-                <div>October 1, 2024</div>
-              </div>
-            </div>
-            <div class="col-md-3 text-scale-down">
-              <div class="bg-text my-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-                  <div class="alphaScore-bg text-center">
-                    <span class="fs-3 fw-bold">8</span>
-                  </div>
-                </div>
-                <div class="text-center mt-2 fw-bold">
-                  <span class="text-decoration-underline">THIS IS ALPHA</span>
-                </div>
-                <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-                  voluptate
-                  doloribus nostrum
-                  necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-                <div>October 1, 2024</div>
-              </div>
-            </div>
-            <div class="col-md-3 text-scale-down">
-              <div class="bg-text my-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-                  <div class="alphaScore-bg text-center">
-                    <span class="fs-3 fw-bold">8</span>
-                  </div>
-                </div>
-                <div class="text-center mt-2 fw-bold">
-                  <span class="text-decoration-underline">THIS IS ALPHA</span>
-                </div>
-                <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-                  voluptate
-                  doloribus nostrum
-                  necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-                <div>October 1, 2024</div>
-              </div>
-            </div>
+
           </section>
         </div>
       </div>
@@ -144,60 +91,9 @@ async function getAllReviews() {
                 <div>October 1, 2024</div>
               </div>
             </div>
-            <div class="col-md-3 text-scale-down">
-              <div class="bg-text my-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-                  <div class="alphaScore-bg text-center">
-                    <span class="fs-3 fw-bold">8</span>
-                  </div>
-                </div>
-                <div class="text-center mt-2 fw-bold">
-                  <span class="text-decoration-underline">THIS IS ALPHA</span>
-                </div>
-                <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-                  voluptate
-                  doloribus nostrum
-                  necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-                <div>October 1, 2024</div>
-              </div>
-            </div>
-            <div class="col-md-3 text-scale-down">
-              <div class="bg-text my-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-                  <div class="alphaScore-bg text-center">
-                    <span class="fs-3 fw-bold">8</span>
-                  </div>
-                </div>
-                <div class="text-center mt-2 fw-bold">
-                  <span class="text-decoration-underline">THIS IS ALPHA</span>
-                </div>
-                <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-                  voluptate
-                  doloribus nostrum
-                  necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-                <div>October 1, 2024</div>
-              </div>
-            </div>
-            <div class="col-md-3 text-scale-down">
-              <div class="bg-text my-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-                  <div class="alphaScore-bg text-center">
-                    <span class="fs-3 fw-bold">8</span>
-                  </div>
-                </div>
-                <div class="text-center mt-2 fw-bold">
-                  <span class="text-decoration-underline">THIS IS ALPHA</span>
-                </div>
-                <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-                  voluptate
-                  doloribus nostrum
-                  necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-                <div>October 1, 2024</div>
-              </div>
-            </div>
+
+
+
           </section>
         </div>
       </div>
