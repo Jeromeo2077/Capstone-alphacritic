@@ -1,12 +1,13 @@
 <script setup>
+import { AppState } from "@/AppState.js";
 import { reviewsService } from "@/services/ReviewsService.js";
 import { logger } from "@/utils/Logger.js";
 import Pop from "@/utils/Pop.js";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useRoute } from "vue-router";
 
 
-
+const game = computed(() => AppState.activeGame)
 const route = useRoute()
 
 const editableReviewData = ref({
@@ -17,7 +18,7 @@ const editableReviewData = ref({
   graphicsScore: 0,
   alphaScore: 0,
   alphaScoreAggregate: 0,
-
+  gameId: route.params.gameId
 })
 function calcAlpha() {
   try {
@@ -36,10 +37,12 @@ function calcAlpha() {
 
 async function createReview() {
   try {
-    const gameId = route.params.gameId
+    // const gameId = route.params.gameId
     const reviewData = editableReviewData.value
-    reviewData.gameId = gameId
+    // reviewData.gameId = gameId
+    // logger.log('gameId', gameId)
     reviewData.alphaScoreAggregate = calcAlpha()
+    logger.log('review data', reviewData)
     const createdReview = await reviewsService.createReview(reviewData)
     editableReviewData.value = {
       title: '',
@@ -49,6 +52,7 @@ async function createReview() {
       graphicsScore: 0,
       alphaScore: 0,
       alphaScoreAggregate: 0,
+      gameId: ''
     }
     logger.log('you created a review!', createdReview)
 
@@ -70,9 +74,9 @@ async function createReview() {
 
 
 <template>
-  <h1>This is the create review form page</h1>
+  <h1>Submit your review for name of game</h1>
 
-  <div class="col-6">
+  <div class="col-12 ml-5 mr-5">
     <form @submit.prevent="createReview">
       <div class="mb-3">
         <label class="form-label" for="title">Review Title</label>
@@ -136,12 +140,14 @@ async function createReview() {
         <option value="10">10</option>
       </select>
       <label class="form-label" for="body">Review Body</label>
-      <textarea v-model="editableReviewData.body" rows="25" class="w-100 form-control" name="body" maxlength="5000"
+      <textarea v-model="editableReviewData.body" rows="15" class="w-100 form-control" name="body" maxlength="5000"
         minlength="3" id="body" type="text"
         required>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum dignissimos vel cumque libero nesciunt tempore nemo quam, fugit esse dolorum aut veritatis laudantium tempora architecto veniam, quidem eveniet quas deserunt, nam repellendus! Quaerat aut voluptatem praesentium ea error ipsum quidem tempora tenetur! Ut exercitationem officia aliquam minima, harum culpa accusantium.</textarea>
-      <button @submit.prevent="createReview" class="save-button">Save Review</button>
-      <button class="publish-button">Publish Review</button>
 
+      <div class="d-flex justify-content-around my-3">
+        <button @submit.prevent="createReview" class="save-button">Save Review</button>
+        <button class="publish-button">Publish Review</button>
+      </div>
 
 
     </form>
