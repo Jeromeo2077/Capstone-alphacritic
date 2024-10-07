@@ -4,6 +4,12 @@ import { Review } from "@/models/Review.js"
 import { AppState } from "@/AppState.js"
 
 class ReviewsService {
+  async getAllReviews() {
+    const response = await api.get('api/reviews')
+    const reviews = response.data.map(reviewData = > new Review(reviewData))
+    logger.log('getting all reviews', response.data)
+    AppState.reviews = reviews
+  }
   async createReview(reviewData) {
     const response = await api.post('api/reviews', reviewData)
     logger.log('Created Review!', response.data)
