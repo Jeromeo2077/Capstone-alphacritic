@@ -9,26 +9,32 @@ defineProps({ reviews: { type: Review, required: true } })
 
 <template>
 
-  <div class="bg-text my-3 p-3">
-    <div class="d-flex justify-content-between align-items-center">
-      <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-      <div class="alphaScore-bg text-center">
-        <span class="fs-3 fw-bold">{{ reviews.alphaScoreAggregate }}</span>
+  <RouterLink :to="{
+    name: 'ReviewDetails', params: { reviewId: reviews.id }
+  }">
+
+    <div class="bg-text selectable my-3 p-3 text-style">
+      <div class="d-flex justify-content-between align-items-center">
+        <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
+        <div class="alphaScore-bg text-center">
+          <span class="fs-3 fw-bold">{{ reviews.alphaScoreAggregate }}</span>
+        </div>
       </div>
+      <div class="text-center mt-2 fw-bold">
+        <span class="text-decoration-underline">{{ reviews.title }}</span>
+      </div>
+      <p class="text-small mt-1">{{ reviews.body }}</p>
+      <div>{{ reviews.createdAt }}</div>
     </div>
-    <div class="text-center mt-2 fw-bold">
-      <span class="text-decoration-underline">{{ reviews.title }}</span>
-    </div>
-    <p class="text-small mt-1">{{ reviews.body }}</p>
-    <div>{{ reviews.createdAt }}</div>
-  </div>
+
+  </RouterLink>
 
 </template>
 
 
 <style lang="scss" scoped>
-.text-shadow {
-  text-shadow: 1px 1px 3px black
+.text-style {
+  color: black;
 }
 
 .bg-text {

@@ -6,14 +6,14 @@ import { useRoute } from "vue-router";
 
 const route = useRoute()
 
-async getReviewByReviewId(){
-  try {
-    await reviewsService.getReviewByReviewId(route.params.reviewId)
-  }
-  catch (error) {
-    Pop.error(error);
-  }
-}
+// async getReviewByReviewId(){
+//   try {
+//     await reviewsService.getReviewByReviewId(route.params.reviewId)
+//   }
+//   catch (error) {
+//     Pop.error(error);
+//   }
+// }
 
 </script>
 
