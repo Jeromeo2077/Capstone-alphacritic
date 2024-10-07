@@ -23,11 +23,10 @@ ReviewSchema.virtual('creator', {
   foreignField: '_id',
   justOne: true,
   ref: 'Account'
-}),
+})
 
-  ReviewSchema.virtual('game', {
-    localField: 'gameId',
-    foreignField: '_id',
-    justOne: true,
-    ref: 'Game'
-  })
+// ReviewSchema.virtual('game', {
+//   localField: 'gameId',
+//   foreignField: '_id',
+//   justOne: true,
+//   ref: 'Game'
