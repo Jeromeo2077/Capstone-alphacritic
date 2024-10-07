@@ -7,6 +7,13 @@ class ReviewsService {
     return reviews
   }
 
+
+  async getReviewById(reviewId) {
+    const review = (await dbContext.Review.findById(reviewId)).populated('creator')
+    return review
+  }
+
+
   async createReview(reviewData) {
     const review = await dbContext.Review.create(reviewData)
     await review.populate('creator')

@@ -29,7 +29,8 @@ export class ReviewsController extends BaseController {
 
   async getReviewById(request, respond, next) {
     try {
-      // REVIEW this is the service function that gets a review by its id
+      const review = await reviewsService.getReviewById(request.params.reviewId)
+      respond.send(review)
 
     } catch (error) {
       next(error);
@@ -38,7 +39,7 @@ export class ReviewsController extends BaseController {
 
   async createReview(request, response, next) {
     try {
-      const reviewData = request.body;
+      const reviewData = await request.body;
       const userInfo = request.userInfo;
       reviewData.creatorId = userInfo.id;
       const review = await reviewsService.createReview(reviewData);
