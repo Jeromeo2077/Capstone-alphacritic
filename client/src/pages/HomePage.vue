@@ -1,5 +1,6 @@
 <script setup>
 import { AppState } from "@/AppState.js";
+import ReviewCard from "@/components/globals/ReviewCard.vue";
 import { reviewsService } from "@/services/ReviewsService.js";
 import Pop from "@/utils/Pop.js";
 import { computed, onMounted } from "vue";
@@ -46,22 +47,8 @@ async function getAllReviews() {
             NEWEST ALPHA SCORES
           </div>
           <section class="row">
-            <div class="col-md-3 text-scale-down">
-              <div class="bg-text my-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-                  <div class="alphaScore-bg text-center">
-                    <span class="fs-3 fw-bold">8</span>
-                  </div>
-                </div>
-                <div class="text-center mt-2 fw-bold">
-                  <span class="text-decoration-underline">THIS IS ALPHA</span>
-                </div>
-                <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum fugit incidunt
-                  voluptatum, numquam reprehenderit sequi praesentium recusandae porro assumenda! Architecto pariatur
-                  doloremque deserunt placeat ullam voluptate atque debitis explicabo inventore.</p>
-                <div>October 1, 2024</div>
-              </div>
+            <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3 text-scale-down">
+              <ReviewCard :reviews="reviews" />
             </div>
           </section>
         </div>
@@ -75,32 +62,20 @@ async function getAllReviews() {
           <div class="fw-bold fs-4 text-shadow text-light">
             HIGHEST APLHA SCORES
           </div>
+
           <section class="row">
-            <div class="col-md-3 text-scale-down">
-              <div class="bg-text my-3 p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-                  <div class="alphaScore-bg text-center">
-                    <span class="fs-3 fw-bold">8</span>
-                  </div>
-                </div>
-                <div class="text-center mt-2 fw-bold">
-                  <span class="text-decoration-underline">THIS IS ALPHA</span>
-                </div>
-                <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-                  voluptate
-                  doloribus nostrum
-                  necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-                <div>October 1, 2024</div>
-              </div>
+
+            <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3 text-scale-down">
+              <ReviewCard :reviews="reviews" />
             </div>
-
-
-
           </section>
         </div>
       </div>
     </section>
+
+
+
+
     <!-- <div class="row p-3">
       <div class="col-12">
         <p>Alphacritic is a community-driven game review site where gamers can congregate to find
