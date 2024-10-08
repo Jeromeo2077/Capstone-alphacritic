@@ -12,8 +12,6 @@ export class ReviewsController extends BaseController {
       .post("", this.createReview)
       .delete("/:reviewId", this.deleteReview)
       .put("/:reviewId/publish", this.publishReview)
-
-
   }
 
   async getAllReviews(request, response, next) {
@@ -53,7 +51,9 @@ export class ReviewsController extends BaseController {
 
   async deleteReview(request, respond, next) {
     try {
-      const reviewToBeDeleted = await reviewsService.deleteReview(request.params.reviewId)
+      const reviewId = request.params.reviewId
+      const userInfo = request.userInfo
+      const reviewToBeDeleted = await reviewsService.deleteReview(reviewId, userInfo)
       respond.send(reviewToBeDeleted)
     } catch (error) {
       next(error);

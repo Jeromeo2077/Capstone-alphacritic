@@ -21,9 +21,14 @@ class ReviewsService {
   }
 
 
-  deleteReview(reviewId) {
-    throw new Error("Method not implemented.")
+  async deleteReview(reviewId, userInfo) {
+    const reviewToBeDeleted = await dbContext.Review.findById(reviewId)
+
+    if (userInfo.id != reviewToBeDeleted.creatorId) {
+      throw new Error('Unauthorized')
+    }
+    await reviewToBeDeleted.deleteOne()
+    return `Review titled: ${reviewToBeDeleted.title} has been deleted!`
   }
 }
-
 export const reviewsService = new ReviewsService()
