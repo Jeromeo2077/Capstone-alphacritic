@@ -1,5 +1,6 @@
 <script setup>
 // import { AppState } from "@/AppState.js";
+import { router } from "@/router";
 import { reviewsService } from "@/services/ReviewsService.js";
 import { logger } from "@/utils/Logger.js";
 import Pop from "@/utils/Pop.js";
@@ -55,6 +56,7 @@ async function createReview() {
       gameId: ''
     }
     logger.log('you created a review!', createdReview)
+    router.push({ name: 'ReviewDetails', params: { reviewId: createdReview.id } })
 
 
   }
@@ -145,8 +147,8 @@ async function createReview() {
         required>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum dignissimos vel cumque libero nesciunt tempore nemo quam, fugit esse dolorum aut veritatis laudantium tempora architecto veniam, quidem eveniet quas deserunt, nam repellendus! Quaerat aut voluptatem praesentium ea error ipsum quidem tempora tenetur! Ut exercitationem officia aliquam minima, harum culpa accusantium.</textarea>
 
       <div class="d-flex justify-content-around my-3">
-        <button @submit.prevent="createReview" class="save-button">Create Review</button>
-        <button class="publish-button">Publish Review</button>
+        <button @submit.prevent="createReview" class="create-button">Create Review</button>
+        <!-- <button class="publish-button">Publish Review</button> -->
       </div>
 
 
@@ -161,15 +163,15 @@ async function createReview() {
 
 
 <style lang="scss" scoped>
-.publish-button {
+// .publish-button {
+//   background-color: #BB0A0A;
+//   font-weight: bolder;
+//   box-shadow: 1px 2px 2px black;
+// }
+
+
+.create-button {
   background-color: #BB0A0A;
-  font-weight: bolder;
-  box-shadow: 1px 2px 2px black;
-}
-
-
-.save-button {
-  background-color: #D9D9D9;
   font-weight: bolder;
   box-shadow: 1px 2px 2px black;
 }
