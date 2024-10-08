@@ -33,8 +33,8 @@ async function getReviewByReviewId() {
 
 
 <template>
-  <div class="container">
-    <section v-if="review" class="row">
+  <div v-if="review" class="container">
+    <section class="row">
       <div class="col-md-12">
         <div class="d-flex align-items-center profile-banner-img mt-5 mb-3">
           <div>
