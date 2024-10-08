@@ -41,11 +41,6 @@ function toggleTheme() {
             About
           </router-link>
         </li>
-        <li>
-          <router-link :to="{ name: 'ReviewDetails' }" class="btn navbar-link lighten-30 selectable text-uppercase">
-            Review Details
-          </router-link>
-        </li>
 
       </ul>
       <!-- LOGIN COMPONENT HERE -->

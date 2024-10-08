@@ -32,7 +32,7 @@ const routes = [
     component: loadPage('CreateReviewPage'),
   },
   {
-    path: '/review/reviewDetails',
+    path: '/review/:reviewId',
     name: 'ReviewDetails',
     component: loadPage('ReviewDetailsPage')
   },

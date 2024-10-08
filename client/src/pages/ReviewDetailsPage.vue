@@ -7,6 +7,7 @@ import { useRoute } from "vue-router";
 
 
 const route = useRoute()
+
 const review = computed(() => AppState.activeReview)
 
 const thereIsAReview = computed(() => {

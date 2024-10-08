@@ -25,7 +25,7 @@ onUnmounted(() => {
 
 async function getGameById() {
   try {
-    await gamesService.getGameById(route.params.gameId);
+    await gamesService.getGameById(route.params.gameId)
   }
   catch (error) {
     Pop.error(error);

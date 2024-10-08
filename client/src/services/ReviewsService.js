@@ -16,7 +16,7 @@ class ReviewsService {
   }
 
   async getReviewByReviewId(reviewId) {
-    const response = await api.get(`api/reviews/${reviewId}`,)
+    const response = await api.get(`api/reviews/${reviewId}`, reviewId)
     logger.log('getting review by Id', response.data)
     AppState.activeReview = new Review(response.data)
   }
