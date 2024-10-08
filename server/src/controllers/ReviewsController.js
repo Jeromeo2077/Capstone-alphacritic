@@ -14,6 +14,7 @@ export class ReviewsController extends BaseController {
       .put("/:reviewId/publish", this.publishReview)
   }
 
+
   async getAllReviews(request, response, next) {
     try {
       const query = request.query
@@ -24,6 +25,7 @@ export class ReviewsController extends BaseController {
       next(error);
     }
   }
+
 
   async getReviewByReviewId(request, respond, next) {
     try {
