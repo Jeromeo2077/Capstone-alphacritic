@@ -15,12 +15,11 @@ class ReviewsService {
     return gameReviews
   }
 
-  // FIXME
-  // async getReviewByReviewId(reviewId) {
-  //   const response = await api.get(`api/reviews/${reviewId}`,)
-  //   logger.log('getting review by Id', response.data)
-  //   AppState.activeReview = new Review(response.data)
-  // }
+  async getReviewByReviewId(reviewId) {
+    const response = await api.get(`api/reviews/${reviewId}`,)
+    logger.log('getting review by Id', response.data)
+    AppState.activeReview = new Review(response.data)
+  }
 
   async getAllReviews() {
     const response = await api.get('api/reviews')
