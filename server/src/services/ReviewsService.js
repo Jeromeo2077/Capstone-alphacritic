@@ -2,8 +2,8 @@ import { dbContext } from "../db/DbContext.js"
 
 class ReviewsService {
 
-  async getAllReviews() {
-    const reviews = await dbContext.Review.find()
+  async getAllReviews(query) {
+    const reviews = await dbContext.Review.find(query).populate('creator')
     return reviews
   }
 

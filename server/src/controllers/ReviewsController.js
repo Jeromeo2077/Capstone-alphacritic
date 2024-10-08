@@ -20,7 +20,8 @@ export class ReviewsController extends BaseController {
 
   async getAllReviews(request, response, next) {
     try {
-      const reviews = await reviewsService.getAllReviews()
+      const query = request.query
+      const reviews = await reviewsService.getAllReviews(query)
       response.send(reviews)
 
     } catch (error) {

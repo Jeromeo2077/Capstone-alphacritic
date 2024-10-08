@@ -3,7 +3,7 @@ import { Schema } from "mongoose";
 export const ReviewSchema = new Schema(
   {
     creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true },
-    gameId: { type: String, required: true },
+    gameId: { type: Number, required: true },
     body: { type: String, minlength: 3, maxlength: 5000, required: true },
     title: { type: String, minlength: 3, maxlength: 50, required: true },
     alphaScore: { type: Number, min: 1, max: 10, required: true },
