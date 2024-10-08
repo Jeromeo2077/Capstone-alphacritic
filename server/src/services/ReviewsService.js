@@ -14,18 +14,6 @@ class ReviewsService {
   }
 
 
-  // async getReviewByGameId(gameId) {
-  //   const reviewsByGameId = await dbContext.Review.find({ gameId: gameId }).populate('creator')
-  //   return reviewsByGameId
-  // }
-
-
-  // async getReviewByCreatorId(creatorId) {
-  //   const reviews = await dbContext.Review.findById(creatorId)
-  //   return reviews
-  // }
-
-
   async createReview(reviewData) {
     const review = await dbContext.Review.create(reviewData)
     await review.populate('creator')
