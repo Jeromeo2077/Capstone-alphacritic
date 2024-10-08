@@ -1,7 +1,6 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import BaseController from "../utils/BaseController.js";
 import { reviewsService } from "../services/ReviewsService.js";
-import { logger } from "../utils/Logger.js";
 
 export class ReviewsController extends BaseController {
   constructor() {
@@ -9,12 +8,11 @@ export class ReviewsController extends BaseController {
     this.router
       .get("", this.getAllReviews)
       .get("/:reviewId", this.getReviewByReviewId)
-      .get("/:gameId", this.getReviewByGameId)
-      .get("/:creatorId", this.getReviewByCreatorId)
+      // .get("/:gameId", this.getReviewByGameId)
+      // .get("/:creatorId", this.getReviewByCreatorId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createReview)
       .delete("/:reviewId", this.deleteReview)
-      .put("/:reviewId", this.saveReview)
       .put("/:reviewId/publish", this.publishReview)
 
 
@@ -41,24 +39,24 @@ export class ReviewsController extends BaseController {
   }
 
 
-  async getReviewByGameId(request, respond, next) {
-    try {
-      const review = await reviewsService.getReviewByGameId(request.params.gameId)
-      respond.send(review)
-    } catch (error) {
-      next(error);
-    }
-  }
+  // async getReviewByGameId(request, respond, next) {
+  //   try {
+  //     const review = await reviewsService.getReviewByGameId(request.params.gameId)
+  //     respond.send(review)
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // }
 
 
-  async getReviewByCreatorId(request, respond, next) {
-    try {
-      const review = await reviewsService.getReviewByCreatorId(request.params.creatorId)
-      respond.send(review)
-    } catch (error) {
-      next(error);
-    }
-  }
+  // async getReviewByCreatorId(request, respond, next) {
+  //   try {
+  //     const review = await reviewsService.getReviewByCreatorId(request.params.creatorId)
+  //     respond.send(review)
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // }
 
 
   async createReview(request, response, next) {
@@ -78,16 +76,6 @@ export class ReviewsController extends BaseController {
     try {
       const reviewToBeDeleted = await reviewsService.deleteReview(request.params.reviewId)
       respond.send(reviewToBeDeleted)
-    } catch (error) {
-      next(error);
-    }
-  }
-
-
-  async saveReview(request, respond, next) {
-    try {
-      // REVIEW this is the service function that edits a review
-
     } catch (error) {
       next(error);
     }
