@@ -2,8 +2,25 @@ import { logger } from "@/utils/Logger.js"
 import { api } from "./AxiosService.js"
 import { Review } from "@/models/Review.js"
 import { AppState } from "@/AppState.js"
+import Pop from "@/utils/Pop.js"
 
 class ReviewsService {
+  async deleteReview(reviewId) {
+    try {
+      const fullReview = await this.getReviewByReviewId(reviewId)
+      logger.log('full review log', fullReview)
+      logger.log('deleting review for ID', reviewId)
+
+      const indexToDelete = AppState.gameReviews.findIndex(review => review.id == reviewId)
+      const response = await api.delete(`api/reviews/${reviewId}`)
+      logger.log(`requesting delete`, response.data)
+      AppState.gameReviews.splice(indexToDelete, 1)
+    }
+    catch (error) {
+      Pop.error(error);
+    }
+  }
+
 
   async getReviewsByGameId(gameId) {
     const response = await api.get(`api/reviews?gameId=${gameId}`)
@@ -28,7 +45,7 @@ class ReviewsService {
   }
 
   async createReview(reviewData) {
-    const response = await api.post('api/reviews', reviewData)
+    const response = await api.post('api/reviews/create', reviewData)
     logger.log('Created Review!', response.data)
     const newReview = new Review(response.data)
     AppState.reviews.push(newReview)

@@ -18,7 +18,7 @@ const reviews = computed(() => {
 
 onMounted(() => {
   getGameById()
-  // FIXME don't use onMounted until back and front end functions are fixed
+
   getReviewsByGameId()
 })
 
