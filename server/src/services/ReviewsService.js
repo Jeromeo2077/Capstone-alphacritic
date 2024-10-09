@@ -27,8 +27,22 @@ class ReviewsService {
     if (userInfo.id != reviewToBeDeleted.creatorId) {
       throw new Error('Unauthorized')
     }
+
     await reviewToBeDeleted.deleteOne()
     return `Review titled: ${reviewToBeDeleted.title} has been deleted!`
   }
+
+
+  async publishReview(reviewId, userInfo) {
+    const reviewToBePublished = await dbContext.Review.findById(reviewId)
+
+    if (userInfo.id != reviewToBePublished.creatorId) {
+      throw new Error('Unauthorized')
+    }
+    reviewToBePublished.isPublished = true
+    await reviewToBePublished
+    return reviewToBePublished
+  }
 }
+
 export const reviewsService = new ReviewsService()
