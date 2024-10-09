@@ -6,6 +6,7 @@ import Pop from "@/utils/Pop.js"
 
 
 class ReviewsService {
+
   async deleteReview(reviewId) {
     try {
       const fullReview = await this.getReviewByReviewId(reviewId)
@@ -22,7 +23,6 @@ class ReviewsService {
       Pop.error(error);
     }
   }
-
 
   async getReviewsByGameId(gameId) {
     const response = await api.get(`api/reviews?gameId=${gameId}`)
