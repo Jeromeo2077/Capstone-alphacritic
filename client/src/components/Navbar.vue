@@ -41,6 +41,11 @@ function toggleTheme() {
             About
           </router-link>
         </li>
+        <li>
+          <router-link :to="{ name: 'Profile' }" class="btn navbar-link lighten-30 selectable text-uppercase">
+            Profile
+          </router-link>
+        </li>
 
       </ul>
       <!-- LOGIN COMPONENT HERE -->
