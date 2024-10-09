@@ -67,7 +67,24 @@ async function getAllReviews() {
             HIGHEST APLHA SCORES
           </div>
 
-          <section class="row bg-text p-3 mx-3">
+          <section class="row bg-text p-2 mx-3">
+
+            <div v-for="reviews in reviews" :key="reviews.id" class="col-md-4">
+              <ReviewCard :reviews="reviews" />
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="col-md-12 mt-3 mb-4">
+        <div class="">
+          <div class="fw-bold fs-4 text-shadow text-light text-center">
+            HIGHEST APLHA SCORES
+          </div>
+
+          <section class="row bg-text p-2 mx-3">
 
             <div v-for="reviews in reviews" :key="reviews.id" class="col-md-4 text-scale-down">
               <ReviewCard :reviews="reviews" />
@@ -111,7 +128,7 @@ async function getAllReviews() {
 }
 
 .text-shadow {
-  text-shadow: 1px 1px 3px black
+  text-shadow: 1px 1px 5px black
 }
 
 .bg-text {
