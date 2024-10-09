@@ -7,8 +7,8 @@ class ReviewsService {
 
   // FIXME
   async getReviewsByGameId(gameId) {
-    const response = await api.get(`api/reviews/${gameId}`, gameId)
-    logger.log('getting reviews by game ID', response)
+    const response = await api.get(`api/reviews?gameId=${gameId}`)
+    logger.log('getting reviews by game ID', response.data)
     const gameReviews = response.data.map(review => new Review(review))
 
     AppState.gameReviews = gameReviews

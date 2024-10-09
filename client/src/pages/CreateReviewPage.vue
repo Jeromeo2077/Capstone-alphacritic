@@ -36,6 +36,8 @@ function calcAlpha() {
   }
 }
 
+
+// 
 async function createReview() {
   try {
     // const gameId = route.params.gameId

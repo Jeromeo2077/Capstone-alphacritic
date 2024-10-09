@@ -11,12 +11,15 @@ const route = useRoute()
 
 const game = computed(() => AppState.activeGame)
 
-// const review = computed(() => AppState.reviews)
+const reviews = computed(() => {
+
+  return AppState.gameReviews.filter(review => review.gameId === game.value.id);
+})
 
 onMounted(() => {
   getGameById()
   // FIXME don't use onMounted until back and front end functions are fixed
-  // getReviewsByGameId()
+  getReviewsByGameId()
 })
 
 onUnmounted(() => {
@@ -67,7 +70,7 @@ async function getReviewsByGameId() {
               </div>
             </div>
             <div class="mt-3">
-              <span class="text-small">Based on X number of user reviews</span>
+              <span class="text-small">Based on {{ reviews.length }} user reviews</span>
             </div>
           </div>
         </div>
@@ -80,13 +83,24 @@ async function getReviewsByGameId() {
         </RouterLink>
       </div>
     </section>
+
+
+
+
+
+
     <section class="row">
       <div class="col-md-12 text-center">
         <h1 class="fw-bold text-decoration-underline">ALPHA REVIEWS</h1>
         <h3 class="fw-bold">THE FRONT LINES</h3>
       </div>
     </section>
+
     <section class="row">
+      <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3 text-scale-down">
+        <ReviewCard :reviews="reviews" />
+      </div>
+
       <div class="col-md-4">
         <div class="my-3 bg-text p-2">
           <div class="d-flex justify-content-between align-items-center">
@@ -105,6 +119,11 @@ async function getReviewsByGameId() {
           <div>October 1, 2024</div>
         </div>
       </div>
+
+
+
+
+
       <div class="col-md-4">
         <div class="my-3 bg-text p-2">
           <div class="d-flex justify-content-between align-items-center">
@@ -123,6 +142,8 @@ async function getReviewsByGameId() {
           <div>October 1, 2024</div>
         </div>
       </div>
+
+
       <div class="col-md-4">
         <div class="my-3 bg-text p-2">
           <div class="d-flex justify-content-between align-items-center">
@@ -141,6 +162,8 @@ async function getReviewsByGameId() {
           <div>October 1, 2024</div>
         </div>
       </div>
+
+
       <div class="col-md-4">
         <div class="my-3 bg-text p-2">
           <div class="d-flex justify-content-between align-items-center">
@@ -159,6 +182,8 @@ async function getReviewsByGameId() {
           <div>October 1, 2024</div>
         </div>
       </div>
+
+
       <div class="col-md-4">
         <div class="my-3 bg-text p-2">
           <div class="d-flex justify-content-between align-items-center">
@@ -177,6 +202,8 @@ async function getReviewsByGameId() {
           <div>October 1, 2024</div>
         </div>
       </div>
+
+
       <div class="col-md-4">
         <div class="my-3 bg-text p-2">
           <div class="d-flex justify-content-between align-items-center">
