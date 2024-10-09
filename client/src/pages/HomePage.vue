@@ -38,7 +38,7 @@ async function getAllReviews() {
 
 <template>
   <!-- SUP JEROME -->
-  <div class="container">
+  <div class="container-fluid hero-img">
     <section class="row">
       <div class="col-md-12">
         <div class="fs-1 fw-bold text-shadow text-light text-center mt-5">WELCOME TO THE FRONT LINES</div>
@@ -102,12 +102,22 @@ async function getAllReviews() {
   font-style: normal;
 }
 
+.hero-img {
+  background-image: url("https://i.postimg.cc/W4SQb5sP/image-7.jpg");
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .text-shadow {
   text-shadow: 1px 1px 3px black
 }
 
 .bg-text {
   background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
 }
 
 .profile-img {
