@@ -38,16 +38,16 @@ async function getAllReviews() {
 
 <template>
   <!-- SUP JEROME -->
-  <div class="container">
+  <div class="container-fluid hero-img">
     <section class="row">
       <div class="col-md-12">
-        <div class="fs-1 fw-bold text-shadow text-light text-center mt-5">WELCOME TO THE FRONT LINES</div>
+        <div class="fs-1 fw-bold text-shadow text-light text-center mt-3">WELCOME TO THE FRONT LINES</div>
       </div>
     </section>
     <section class="row">
-      <div class="col-md-12 mt-5">
+      <div class="col-md-12 mt-3">
         <div class="bg-text p-3">
-          <div class="fw-bold fs-4 text-shadow text-light">
+          <div class="fw-bold fs-4 text-shadow text-light text-center">
             NEWEST ALPHA SCORES
           </div>
           <section class="row">
@@ -61,15 +61,15 @@ async function getAllReviews() {
 
 
     <section class="row">
-      <div class="col-md-12 mt-5">
-        <div class="bg-text p-3">
-          <div class="fw-bold fs-4 text-shadow text-light">
+      <div class="col-md-12 mt-3 mb-4">
+        <div class="">
+          <div class="fw-bold fs-4 text-shadow text-light text-center">
             HIGHEST APLHA SCORES
           </div>
 
-          <section class="row">
+          <section class="row bg-text p-3 mx-3">
 
-            <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3 text-scale-down">
+            <div v-for="reviews in reviews" :key="reviews.id" class="col-md-4 text-scale-down">
               <ReviewCard :reviews="reviews" />
             </div>
           </section>
@@ -102,12 +102,22 @@ async function getAllReviews() {
   font-style: normal;
 }
 
+.hero-img {
+  background-image: url("https://i.postimg.cc/W4SQb5sP/image-7.jpg");
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .text-shadow {
   text-shadow: 1px 1px 3px black
 }
 
 .bg-text {
   background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
 }
 
 .profile-img {
