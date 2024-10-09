@@ -9,7 +9,7 @@ export class ReviewsController extends BaseController {
       .get("", this.getAllReviews)
       .get("/:reviewId", this.getReviewByReviewId)
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .post("", this.createReview)
+      .post("/create", this.createReview)
       .delete("/:reviewId", this.deleteReview)
       .put("/:reviewId/publish", this.publishReview)
   }
@@ -65,7 +65,10 @@ export class ReviewsController extends BaseController {
 
   async publishReview(request, respond, next) {
     try {
-      // REVIEW this is the service function that publishes a review
+      const reviewId = request.params.reviewId
+      const userInfo = request.userInfo
+      const reviewToBePublished = await reviewsService.publishReview(reviewId, userInfo)
+      respond.send(reviewToBePublished)
 
     } catch (error) {
       next(error);

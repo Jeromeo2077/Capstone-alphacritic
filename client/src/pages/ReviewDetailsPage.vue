@@ -29,6 +29,20 @@ async function getReviewByReviewId() {
   }
 }
 
+
+async function deleteReview(reviewId) {
+  try {
+    const confirmed = await Pop.confirm(`Are you sure you want to delete this review?`)
+    if (!confirmed) return
+    await reviewsService.deleteReview(reviewId)
+    Pop.toast(`You've deleted your review!`)
+
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
+
 </script>
 
 
@@ -80,6 +94,8 @@ async function getReviewByReviewId() {
           <p class="p-3">{{ review.body }}</p>
         </div>
       </div>
+      <button @click="deleteReview" class="my-3">Delete</button>
+      <button>Publish</button>
     </section>
   </div>
 
