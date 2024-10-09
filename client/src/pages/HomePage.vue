@@ -11,6 +11,9 @@ onMounted(() => {
 
 const reviews = computed(() => AppState.reviews)
 
+
+
+
 // async function getReviewByReviewId(){
 //  try {
 
@@ -22,6 +25,7 @@ const reviews = computed(() => AppState.reviews)
 
 async function getAllReviews() {
   try {
+
     await reviewsService.getAllReviews()
   }
   catch (error) {

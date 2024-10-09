@@ -39,9 +39,9 @@ class ReviewsService {
     if (userInfo.id != reviewToBePublished.creatorId) {
       throw new Error('Unauthorized')
     }
-    reviewToBePublished.isPublished = true
-    await reviewToBePublished
-    return reviewToBePublished
+    reviewToBePublished.isPublished = !reviewToBePublished.isPublished
+    await reviewToBePublished.save()
+    return `Review titled: ${reviewToBePublished.title} has been published!`
   }
 }
 

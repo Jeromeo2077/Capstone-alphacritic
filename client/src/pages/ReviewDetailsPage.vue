@@ -1,5 +1,7 @@
 <script setup>
 import { AppState } from "@/AppState.js";
+import { router } from "@/router.js";
+import { api } from "@/services/AxiosService.js";
 import { reviewsService } from "@/services/ReviewsService.js";
 import Pop from "@/utils/Pop.js";
 import { computed, onMounted } from "vue";
@@ -15,6 +17,8 @@ const review = computed(() => AppState.activeReview)
 //   if (review.value != null) return true
 //   return true
 // })
+
+const isAccount = computed(() => AppState.account)
 
 onMounted(() => {
   getReviewByReviewId()
@@ -37,7 +41,7 @@ async function deleteReview() {
     if (!confirmed) return
     await reviewsService.deleteReview(reviewId)
     await Pop.toast(`You've deleted your review!`)
-
+    router.push({ name: 'Home' })
   }
   catch (error) {
     Pop.error(error);
@@ -95,7 +99,7 @@ async function deleteReview() {
           <p class="p-3">{{ review.body }}</p>
         </div>
       </div>
-      <button @click="deleteReview" class="my-3">Delete</button>
+      <button v-if="isAccount" @click="deleteReview" class="my-3">Delete</button>
       <button>Publish</button>
     </section>
   </div>
