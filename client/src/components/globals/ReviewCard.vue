@@ -38,19 +38,21 @@ defineProps({ reviews: { type: Review, required: true } })
 }
 
 .bg-text {
+  max-height: 50dvh;
   background-color: rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 
 .profile-img {
-  height: 5dvh;
-  width: 5dvh;
+  height: 10dvh;
+  width: 10dvh;
   border-radius: 5dvh;
 }
 
 .alphaScore-bg {
   background-color: #BB0A0A;
-  height: 5dvh;
-  width: 5dvh;
+  height: 10dvh;
+  width: 10dvh;
 }
 
 .text-scale-down {
