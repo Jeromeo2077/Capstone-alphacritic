@@ -30,12 +30,13 @@ async function getReviewByReviewId() {
 }
 
 
-async function deleteReview(reviewId) {
+async function deleteReview() {
   try {
+    const reviewId = route.params.reviewId
     const confirmed = await Pop.confirm(`Are you sure you want to delete this review?`)
     if (!confirmed) return
     await reviewsService.deleteReview(reviewId)
-    Pop.toast(`You've deleted your review!`)
+    await Pop.toast(`You've deleted your review!`)
 
   }
   catch (error) {

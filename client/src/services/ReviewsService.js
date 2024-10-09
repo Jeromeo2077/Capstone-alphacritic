@@ -3,6 +3,7 @@ import { api } from "./AxiosService.js"
 import { Review } from "@/models/Review.js"
 import { AppState } from "@/AppState.js"
 import Pop from "@/utils/Pop.js"
+import { router } from "@/router.js"
 
 class ReviewsService {
   async deleteReview(reviewId) {
@@ -13,8 +14,9 @@ class ReviewsService {
 
       const indexToDelete = AppState.gameReviews.findIndex(review => review.id == reviewId)
       const response = await api.delete(`api/reviews/${reviewId}`)
-      logger.log(`requesting delete`, response.data)
+      logger.log(`requesting delete`, response.data, reviewId)
       AppState.gameReviews.splice(indexToDelete, 1)
+      router.push({ name: 'Home' })
     }
     catch (error) {
       Pop.error(error);
