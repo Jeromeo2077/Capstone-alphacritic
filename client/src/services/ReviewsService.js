@@ -5,7 +5,6 @@ import { AppState } from "@/AppState.js"
 
 class ReviewsService {
 
-  // FIXME
   async getReviewsByGameId(gameId) {
     const response = await api.get(`api/reviews?gameId=${gameId}`)
     logger.log('getting reviews by game ID', response.data)

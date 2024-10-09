@@ -10,17 +10,16 @@ const route = useRoute()
 
 const review = computed(() => AppState.activeReview)
 
-const thereIsAReview = computed(() => {
-  if (review.value == null) return false
-  if (review.value != null) return true
-  return true
-})
+// const thereIsAReview = computed(() => {
+//   if (review.value == null) return false
+//   if (review.value != null) return true
+//   return true
+// })
 
 onMounted(() => {
   getReviewByReviewId()
 })
 
-// FIXME
 async function getReviewByReviewId() {
   try {
     await reviewsService.getReviewByReviewId(route.params.reviewId)
@@ -35,7 +34,7 @@ async function getReviewByReviewId() {
 
 <template>
   <div class="container">
-    <section v-if="thereIsAReview" class="row">
+    <section v-if="review" class="row">
       <div class="col-md-12">
         <div class="d-flex align-items-center profile-banner-img mt-5 mb-3">
           <div>
@@ -51,21 +50,25 @@ async function getReviewByReviewId() {
       <div class="col-md-12">
         <div>
           <div class="d-flex flex-column">
-            <span class="text-center fw-bold fs-1">REVIEW TITLE</span>
+            <span class="text-center fw-bold fs-1 mb-5">{{ review.title }}</span>
             <span class="text-center fw-bold fs-4">ALPHA SCORE</span>
+            <div class="d-flex justify-content-center">
+              <span class="d-flex justify-content-around align-items-center alphaScore-bg-two fs-1 fw-bold mx-3 p-2">{{
+                review.alphaScoreAggregate }}</span>
+            </div>
           </div>
           <div class="d-flex justify-content-between mt-5 mb-3">
             <div>
               <span class="fw-bold">STORY SCORE</span>
-              <span class="alphaScore-bg fw-bold mx-3 p-2">8</span>
+              <span class="alphaScore-bg fw-bold mx-3 p-2">{{ review.storyScore }}</span>
             </div>
             <div>
               <span class="fw-bold">GAMEMPLAY SCORE</span>
-              <span class="alphaScore-bg fw-bold mx-3 p-2">8</span>
+              <span class="alphaScore-bg fw-bold mx-3 p-2">{{ review.gameplayScore }}</span>
             </div>
             <div>
               <span class="fw-bold">GRAPHICS SCORE</span>
-              <span class="alphaScore-bg fw-bold mx-3 p-2">8</span>
+              <span class="alphaScore-bg fw-bold mx-3 p-2">{{ review.graphicsScore }}</span>
             </div>
           </div>
         </div>
@@ -74,15 +77,7 @@ async function getReviewByReviewId() {
     <section class="row">
       <div class="col-md-12">
         <div class="bg-text my-3">
-          <p class="p-3">REVIEW BODY - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium perferendis
-            consequuntur nulla sunt architecto, iste sed? Est ratione minima odio laborum ea et atque totam rem? Error
-            quibusdam possimus temporibus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, tempora
-            id sint deserunt corporis aliquam ducimus commodi. Recusandae ut nobis facere sapiente, quidem et,
-            cupiditate tempora debitis, consectetur labore dicta! Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Unde est, illum facere consequuntur molestiae magnam nostrum quos quidem! Labore ea velit odio porro!
-            Eos, consequatur exercitationem voluptate qui tenetur laboriosam! Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Itaque, quisquam fugiat impedit minus aperiam neque molestias incidunt quos ullam, porro,
-            accusantium tempora magni nihil rem? Doloremque in consequatur facilis fugit!</p>
+          <p class="p-3">{{ review.body }}</p>
         </div>
       </div>
     </section>
@@ -105,6 +100,7 @@ async function getReviewByReviewId() {
 }
 
 .bg-text {
+  min-height: 100%;
   background-color: rgba(0, 0, 0, 0.25);
 }
 
@@ -112,5 +108,11 @@ async function getReviewByReviewId() {
   background-color: #BB0A0A;
   height: 10dvh;
   width: 100%;
+}
+
+.alphaScore-bg-two {
+  background-color: #BB0A0A;
+  height: 10dvh;
+  width: 10dvh;
 }
 </style>

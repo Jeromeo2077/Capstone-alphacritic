@@ -243,7 +243,9 @@ async function getReviewsByGameId() {
 }
 
 .bg-text {
+  max-height: 50dvh;
   background-color: rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 
 .create-btn {
