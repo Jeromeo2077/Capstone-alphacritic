@@ -9,7 +9,7 @@ export class ReviewsController extends BaseController {
       .get("", this.getAllReviews)
       .get("/:reviewId", this.getReviewByReviewId)
       .use(Auth0Provider.getAuthorizedUserInfo)
-      .post("", this.createReview)
+      .post("/create", this.createReview)
       .delete("/:reviewId", this.deleteReview)
       .put("/:reviewId/publish", this.publishReview)
   }

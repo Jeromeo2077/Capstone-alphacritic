@@ -24,9 +24,9 @@ class ReviewsService {
   async deleteReview(reviewId, userInfo) {
     const reviewToBeDeleted = await dbContext.Review.findById(reviewId)
 
-    // if (userInfo.id != reviewToBeDeleted.creatorId) {
-    //   throw new Error('Unauthorized')
-    // }
+    if (userInfo.id != reviewToBeDeleted.creatorId) {
+      throw new Error('Unauthorized')
+    }
 
     await reviewToBeDeleted.deleteOne()
     return `Review titled: ${reviewToBeDeleted.title} has been deleted!`
