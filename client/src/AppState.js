@@ -16,10 +16,10 @@ export const AppState = reactive({
   /**@type {Review[]} */
   reviews: [],
 
-  /**@type{Review} */
+  /**@type {Review} */
   activeReview: null,
 
-  /**@type{Review[]} */
+  /**@type {Review[]} */
   gameReviews: []
 
 })
