@@ -7,6 +7,8 @@ import Pop from "@/utils/Pop.js";
 import { computed, onMounted, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
 
+const isAccount = computed(() => AppState.account)
+
 const route = useRoute()
 
 const game = computed(() => AppState.activeGame)
@@ -76,22 +78,20 @@ async function getReviewsByGameId() {
         </div>
       </div>
     </section>
+
     <section class="row">
       <div class="col-md-12">
-        <RouterLink :to="{ name: 'CreateReview', params: { gameId: game.id } }">
-          <button class="create-btn selectable my-3">CREATE ALPHA REVIEW</button>
-        </RouterLink>
+        <div v-if="isAccount">
+          <RouterLink :to="{ name: 'CreateReview', params: { gameId: game.id } }">
+            <button class="create-btn selectable my-3">CREATE ALPHA REVIEW</button>
+          </RouterLink>
+        </div>
       </div>
     </section>
 
-
-
-
-
-
     <section class="row">
       <div class="col-md-12 text-center">
-        <h1 class="fw-bold text-decoration-underline">ALPHA REVIEWS</h1>
+        <h1 class="fw-bold text-decoration-underline m-3">ALPHA REVIEWS</h1>
         <h3 class="fw-bold">THE FRONT LINES</h3>
       </div>
     </section>
