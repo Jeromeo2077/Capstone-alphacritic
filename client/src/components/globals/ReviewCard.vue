@@ -7,7 +7,6 @@ import { computed } from "vue";
 defineProps({ reviews: { type: Review, required: true } })
 
 
-const account = computed(() => AppState.account)
 </script>
 
 
@@ -19,9 +18,9 @@ const account = computed(() => AppState.account)
 
     <div class="bg-text selectable my-3 p-3 text-style">
       <div class="d-flex justify-content-between align-items-center">
-        <RouterLink :to="{ name: 'Profile', params: { profileId: account.id } }">
-          <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-        </RouterLink>
+        <!-- <RouterLink :to="{ name: 'Profile', params: { profileId: profile.id } }"> -->
+        <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
+        <!-- </RouterLink> -->
         <div class="alphaScore-bg text-center">
           <span class="fs-3 fw-bold">{{ reviews.alphaScoreAggregate }}</span>
         </div>

@@ -58,7 +58,7 @@ async function getAllReviews() {
             <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img ms-3" alt="">
           </div>
           <div class="mx-3 fw-bold fs-1">
-            {{ account.name || profile.name }}
+            Profile Name
           </div>
         </div>
       </div>
