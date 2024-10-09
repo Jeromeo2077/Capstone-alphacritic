@@ -39,7 +39,7 @@ defineProps({ reviews: { type: Review, required: true } })
 
 .bg-text {
   max-height: 50dvh;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   overflow: hidden;
   border-radius: 1rem;
   color: white;
