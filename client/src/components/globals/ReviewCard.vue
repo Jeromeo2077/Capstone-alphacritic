@@ -38,14 +38,16 @@ defineProps({ reviews: { type: Review, required: true } })
 }
 
 .bg-text {
-  background-color: rgba(0, 0, 0, 0.4);
+  max-height: 50dvh;
+  background-color: rgba(255, 255, 255, 0.4);
+  overflow: hidden;
   border-radius: 1rem;
   color: white;
 }
 
 .profile-img {
-  height: 5dvh;
-  width: 5dvh;
+  height: 10dvh;
+  width: 10dvh;
   border-radius: 5dvh;
 }
 
