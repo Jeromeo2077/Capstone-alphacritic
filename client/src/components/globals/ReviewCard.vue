@@ -23,7 +23,7 @@ defineProps({ reviews: { type: Review, required: true } })
       <div class="text-center mt-2 fw-bold">
         <span class="text-decoration-underline">{{ reviews.title }}</span>
       </div>
-      <p class="text-small mt-1">{{ reviews.body }}</p>
+      <p class="mt-1">{{ reviews.body }}</p>
       <div>{{ reviews.createdAt }}</div>
     </div>
 
@@ -38,12 +38,16 @@ defineProps({ reviews: { type: Review, required: true } })
 }
 
 .bg-text {
-  background-color: rgba(0, 0, 0, 0.25);
+  max-height: 50dvh;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-radius: 1rem;
+  color: white;
 }
 
 .profile-img {
-  height: 5dvh;
-  width: 5dvh;
+  height: 10dvh;
+  width: 10dvh;
   border-radius: 5dvh;
 }
 
@@ -51,9 +55,6 @@ defineProps({ reviews: { type: Review, required: true } })
   background-color: #BB0A0A;
   height: 5dvh;
   width: 5dvh;
-}
-
-.text-scale-down {
-  font-size: .5rem;
+  border-radius: .5rem;
 }
 </style>

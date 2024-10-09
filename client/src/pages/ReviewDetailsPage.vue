@@ -52,7 +52,7 @@ async function deleteReview() {
 
 
 <template>
-  <div v-if="review" class="container">
+  <div v-if="review" class="container-fluid">
     <section class="row">
       <div class="col-md-12">
         <div class="d-flex align-items-center profile-banner-img mt-5 mb-3">
@@ -99,8 +99,10 @@ async function deleteReview() {
           <p class="p-3">{{ review.body }}</p>
         </div>
       </div>
-      <button v-if="isAccount" @click="deleteReview" class="my-3">Delete</button>
-      <button>Publish</button>
+      <div v-if="isAccount">
+        <button @click="deleteReview" class="my-3">Delete</button>
+        <button>Publish</button>
+      </div>
     </section>
   </div>
 

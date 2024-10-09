@@ -7,6 +7,8 @@ import Pop from "@/utils/Pop.js";
 import { computed, onMounted, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
 
+const isAccount = computed(() => AppState.account)
+
 const route = useRoute()
 
 const game = computed(() => AppState.activeGame)
@@ -50,7 +52,7 @@ async function getReviewsByGameId() {
 
 
 <template>
-  <div class="container" v-if="game">
+  <div class="container-fluid" v-if="game">
     <section class="row">
       <div class="col-md-7 mt-5">
         <img :src="game.background_image" class="img-fluid cover-img" alt="">
@@ -76,152 +78,31 @@ async function getReviewsByGameId() {
         </div>
       </div>
     </section>
+
     <section class="row">
       <div class="col-md-12">
-        <RouterLink :to="{ name: 'CreateReview', params: { gameId: game.id } }">
-          <button class="create-btn selectable my-3">CREATE ALPHA REVIEW</button>
-        </RouterLink>
+        <div v-if="isAccount">
+          <RouterLink :to="{ name: 'CreateReview', params: { gameId: game.id } }">
+            <button class="create-btn selectable my-3">CREATE ALPHA REVIEW</button>
+          </RouterLink>
+        </div>
       </div>
     </section>
 
-
-
-
-
-
     <section class="row">
       <div class="col-md-12 text-center">
-        <h1 class="fw-bold text-decoration-underline">ALPHA REVIEWS</h1>
+        <h1 class="fw-bold text-decoration-underline m-3">ALPHA REVIEWS</h1>
         <h3 class="fw-bold">THE FRONT LINES</h3>
       </div>
     </section>
 
     <section class="row">
-      <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3 text-scale-down">
-        <ReviewCard :reviews="reviews" />
-      </div>
-
-      <div class="col-md-4">
-        <div class="my-3 bg-text p-2">
-          <div class="d-flex justify-content-between align-items-center">
-            <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-            <div class="alphaScore-bg text-center">
-              <span class="fs-1 fw-bold">8</span>
-            </div>
-          </div>
-          <div class="text-center mt-2 fw-bold">
-            <span class="text-decoration-underline">THIS IS ALPHA</span>
-          </div>
-          <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-            voluptate
-            doloribus nostrum
-            necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-          <div>October 1, 2024</div>
+      <div v-for="reviews in reviews" :key="reviews.id" class="col-md-4">
+        <div class="text-scale-down">
+          <ReviewCard :reviews="reviews" />
         </div>
       </div>
 
-
-
-
-
-      <div class="col-md-4">
-        <div class="my-3 bg-text p-2">
-          <div class="d-flex justify-content-between align-items-center">
-            <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-            <div class="alphaScore-bg text-center">
-              <span class="fs-1 fw-bold">8</span>
-            </div>
-          </div>
-          <div class="text-center mt-2 fw-bold">
-            <span class="text-decoration-underline">THIS IS ALPHA</span>
-          </div>
-          <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-            voluptate
-            doloribus nostrum
-            necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-          <div>October 1, 2024</div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="my-3 bg-text p-2">
-          <div class="d-flex justify-content-between align-items-center">
-            <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-            <div class="alphaScore-bg text-center">
-              <span class="fs-1 fw-bold">8</span>
-            </div>
-          </div>
-          <div class="text-center mt-2 fw-bold">
-            <span class="text-decoration-underline">THIS IS ALPHA</span>
-          </div>
-          <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-            voluptate
-            doloribus nostrum
-            necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-          <div>October 1, 2024</div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="my-3 bg-text p-2">
-          <div class="d-flex justify-content-between align-items-center">
-            <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-            <div class="alphaScore-bg text-center">
-              <span class="fs-1 fw-bold">8</span>
-            </div>
-          </div>
-          <div class="text-center mt-2 fw-bold">
-            <span class="text-decoration-underline">THIS IS ALPHA</span>
-          </div>
-          <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-            voluptate
-            doloribus nostrum
-            necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-          <div>October 1, 2024</div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="my-3 bg-text p-2">
-          <div class="d-flex justify-content-between align-items-center">
-            <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-            <div class="alphaScore-bg text-center">
-              <span class="fs-1 fw-bold">8</span>
-            </div>
-          </div>
-          <div class="text-center mt-2 fw-bold">
-            <span class="text-decoration-underline">THIS IS ALPHA</span>
-          </div>
-          <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-            voluptate
-            doloribus nostrum
-            necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-          <div>October 1, 2024</div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4">
-        <div class="my-3 bg-text p-2">
-          <div class="d-flex justify-content-between align-items-center">
-            <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-            <div class="alphaScore-bg text-center">
-              <span class="fs-1 fw-bold">8</span>
-            </div>
-          </div>
-          <div class="text-center mt-2 fw-bold">
-            <span class="text-decoration-underline">THIS IS ALPHA</span>
-          </div>
-          <p class="text-small mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id atque obcaecati
-            voluptate
-            doloribus nostrum
-            necessitatibus, nesciunt quisquam, eius tenetur debitis in officiis.</p>
-          <div>October 1, 2024</div>
-        </div>
-      </div>
     </section>
   </div>
   <div v-else>loading.........</div>
