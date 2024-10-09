@@ -38,8 +38,9 @@ defineProps({ reviews: { type: Review, required: true } })
 }
 
 .bg-text {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 1rem;
+  color: white;
 }
 
 .profile-img {
@@ -52,5 +53,6 @@ defineProps({ reviews: { type: Review, required: true } })
   background-color: #BB0A0A;
   height: 5dvh;
   width: 5dvh;
+  border-radius: .5rem;
 }
 </style>
