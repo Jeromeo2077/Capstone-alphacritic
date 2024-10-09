@@ -27,7 +27,7 @@ const routes = [
     component: loadPage('GameDetailsPage')
   },
   {
-    path: '/review/:gameId',
+    path: '/review/create/:gameId',
     name: 'CreateReview',
     component: loadPage('CreateReviewPage'),
   },
