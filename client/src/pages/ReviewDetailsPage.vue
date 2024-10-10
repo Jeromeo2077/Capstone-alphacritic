@@ -61,7 +61,7 @@ async function publishReview() {
 
 
 <template>
-  <div v-if="review" class="container-fluid">
+  <div v-if="review" class="container">
     <section class="row">
       <div class="col-md-12">
         <div class="d-flex align-items-center profile-banner-img mt-5 mb-3">
@@ -76,7 +76,7 @@ async function publishReview() {
     </section>
     <section class="row">
       <div class="col-md-12">
-        <div>
+        <div class="text-light text-shadow">
           <div class="d-flex flex-column">
             <span class="text-center fw-bold fs-1 mb-5">{{ review.title }}</span>
             <span class="text-center fw-bold fs-4">ALPHA SCORE</span>
@@ -132,8 +132,13 @@ async function publishReview() {
 }
 
 .bg-text {
-  min-height: 100%;
   background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  border-radius: .5rem;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 3px black
 }
 
 .alphaScore-bg {
