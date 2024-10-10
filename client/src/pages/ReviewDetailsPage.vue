@@ -46,6 +46,17 @@ async function deleteReview() {
   }
 }
 
+async function publishReview() {
+  try {
+    const reviewId = route.params.reviewId
+    await reviewsService.publishReview(reviewId)
+    await Pop.toast(`You've published your review!`)
+  }
+  catch (error) {
+    Pop.error(error);
+  }
+}
+
 </script>
 
 
@@ -98,8 +109,8 @@ async function deleteReview() {
         </div>
       </div>
       <div v-if="account && review.creatorId == account.id">
-        <button @click="deleteReview" class="my-3">Delete</button>
-        <button>Publish</button>
+        <button @click="deleteReview" class="m-3">Delete</button>
+        <button @click="publishReview" class="m-3">Publish</button>
       </div>
     </section>
   </div>
