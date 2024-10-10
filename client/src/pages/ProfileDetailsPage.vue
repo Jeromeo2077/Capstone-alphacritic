@@ -4,16 +4,17 @@ import { profilesService } from "@/services/ProfilesService.js";
 import { reviewsService } from "@/services/ReviewsService.js";
 import { logger } from "@/utils/Logger.js";
 import Pop from "@/utils/Pop.js";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 
 
 const route = useRoute()
 
-onMounted(() => {
+watch(() => route.params.profileId, () => {
   getAllReviews()
   getProfileById()
 })
+
 const reviews = computed(() => AppState.reviews)
 const profile = computed(() => AppState.activeProfile)
 
@@ -23,6 +24,7 @@ const account = computed(() => AppState.account)
 
 async function getProfileById() {
   try {
+
     const profileId = route.params.profileId
     logger.log('getting profile id from url', profileId)
     await profilesService.getProfileById(profileId)
@@ -49,7 +51,7 @@ async function getAllReviews() {
 
 
 <template>
-  <div class="container">
+  <div v-if="profile" class="container">
 
     <section class="row">
       <div class="col-md-12">
@@ -58,7 +60,8 @@ async function getAllReviews() {
             <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img ms-3" alt="">
           </div>
           <div class="mx-3 fw-bold fs-1">
-            Profile Name
+            {{ profile.name }}
+
           </div>
         </div>
       </div>

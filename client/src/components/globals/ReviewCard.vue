@@ -1,10 +1,14 @@
 <script setup>
+
 import { AppState } from "@/AppState.js";
 import { Review } from "@/models/Review.js";
 import { computed } from "vue";
 
 
+
 defineProps({ reviews: { type: Review, required: true } })
+
+
 
 
 </script>
@@ -18,9 +22,9 @@ defineProps({ reviews: { type: Review, required: true } })
 
     <div class="bg-text selectable my-3 p-3 text-style">
       <div class="d-flex justify-content-between align-items-center">
-        <!-- <RouterLink :to="{ name: 'Profile', params: { profileId: profile.id } }"> -->
-        <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-        <!-- </RouterLink> -->
+        <RouterLink :to="{ name: 'Profile', params: { profileId: reviews.creator.id } }">
+          <img :src="reviews.creator.picture" class="profile-img" alt="">
+        </RouterLink>
         <div class="alphaScore-bg text-center">
           <span class="fs-3 fw-bold">{{ reviews.alphaScoreAggregate }}</span>
         </div>
