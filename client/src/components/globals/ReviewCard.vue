@@ -20,17 +20,15 @@ defineProps({ reviews: { type: Review, required: true } })
     name: 'ReviewDetails', params: { reviewId: reviews.id }
   }">
 
-    <div class="bg-text selectable my-3 p-3 text-style">
+    <div class="bg-text selectable p-3">
       <div class="d-flex justify-content-between align-items-center">
         <RouterLink :to="{ name: 'Profile', params: { profileId: reviews.creator.id } }">
           <img :src="reviews.creator.picture" class="profile-img" alt="">
         </RouterLink>
-        <div class="alphaScore-bg text-center">
+        <span class="fs-4 text-decoration-underline p-3">{{ reviews.title }}</span>
+        <div class="d-flex justify-content-around align-items-center text-center alphaScore-bg">
           <span class="fs-3 fw-bold">{{ reviews.alphaScoreAggregate }}</span>
         </div>
-      </div>
-      <div class="text-center mt-2 fw-bold">
-        <span class="text-decoration-underline">{{ reviews.title }}</span>
       </div>
       <p class="mt-1">{{ reviews.body }}</p>
       <div>{{ reviews.createdAt }}</div>
@@ -42,12 +40,8 @@ defineProps({ reviews: { type: Review, required: true } })
 
 
 <style lang="scss" scoped>
-.text-style {
-  color: black;
-}
-
 .bg-text {
-  max-height: 50dvh;
+  height: 30dvh;
   background-color: rgba(0, 0, 0, 0.5);
   overflow: hidden;
   border-radius: 1rem;
@@ -55,15 +49,15 @@ defineProps({ reviews: { type: Review, required: true } })
 }
 
 .profile-img {
-  height: 10dvh;
-  width: 10dvh;
+  max-height: 8dvh;
+  max-width: 8dvh;
   border-radius: 5dvh;
 }
 
 .alphaScore-bg {
   background-color: #BB0A0A;
-  height: 5dvh;
-  width: 5dvh;
   border-radius: .5rem;
+  min-width: 8dvh;
+  min-height: 8dvh;
 }
 </style>
