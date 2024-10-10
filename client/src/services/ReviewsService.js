@@ -6,6 +6,13 @@ import Pop from "@/utils/Pop.js"
 
 
 class ReviewsService {
+  async getReviewsByCreatorId(profileId) {
+    AppState.reviews = []
+    const response = await api.get(`api/reviews?profileId=${profileId}`)
+    logger.log('GOT REVIEWS FOR PROFILE', response.data)
+    const newReviews = response.data.map(reviewPOJO => new Review(reviewPOJO))
+    AppState.reviews = newReviews
+  }
 
   async deleteReview(reviewId) {
     try {

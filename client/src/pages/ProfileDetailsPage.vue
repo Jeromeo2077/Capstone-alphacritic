@@ -10,9 +10,14 @@ import { useRoute } from "vue-router";
 
 const route = useRoute()
 
+onMounted(() => {
+  getReviewsByCreatorId()
+})
+
 watch(() => route.params.profileId, () => {
   getAllReviews()
   getProfileById()
+
 }, { immediate: true })
 
 const reviews = computed(() => AppState.reviews)
@@ -21,6 +26,17 @@ const profile = computed(() => AppState.activeProfile)
 const account = computed(() => AppState.account)
 
 
+
+async function getReviewsByCreatorId() {
+  try {
+    const profileId = route.params.profileId
+    await reviewsService.getReviewsByCreatorId(profileId)
+  }
+  catch (error) {
+    Pop.error(error)
+    logger.error(error)
+  }
+}
 
 async function getProfileById() {
   try {
