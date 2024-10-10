@@ -78,89 +78,92 @@ async function createReview() {
 
 
 <template>
-  <h1>Submit your review for name of game</h1>
+  <div class="container">
 
-  <div class="col-12 ml-5 mr-5">
-    <form @submit.prevent="createReview">
-      <div class="mb-3">
-        <label class="form-label" for="title">Review Title</label>
-        <input v-model="editableReviewData.title" class="form-control" id="title" name="title" type="text" required
-          minlength="3" maxlength="50" placeholder="Title your review">
-      </div>
-      <label class="form-label" for="gameplay-score">Gameplay Score</label>
-      <select v-model="editableReviewData.gameplayScore" class="form-select" name="gameplay-score" id="gameplay-score"
-        placeholder="Gameplay Score" min="1" max="10" required>Gameplay Score
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-      <label class="form-label" for="story-score">Story Score</label>
-      <select v-model="editableReviewData.storyScore" class="form-select" name="story-score" id="story-score" min="1"
-        max="10" required>Story Score
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-      <label class="form-label" for="graphics-score">Graphics Score</label>
-      <select v-model="editableReviewData.graphicsScore" class="form-select" name="graphics-score" id="graphics-score"
-        min="1" max="10" required>Graphics Score
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-      <label class="form-label" for="alpha-score">Alpha Score</label>
-      <select v-model="editableReviewData.alphaScore" class="form-select" name="alpha-score" id="alpha-score" min="1"
-        max="10" required>Alpha Score
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-      <label class="form-label" for="body">Review Body</label>
-      <textarea v-model="editableReviewData.body" rows="15" class="w-100 form-control" name="body" maxlength="5000"
-        minlength="3" id="body" type="text"
-        required>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum dignissimos vel cumque libero nesciunt tempore nemo quam, fugit esse dolorum aut veritatis laudantium tempora architecto veniam, quidem eveniet quas deserunt, nam repellendus! Quaerat aut voluptatem praesentium ea error ipsum quidem tempora tenetur! Ut exercitationem officia aliquam minima, harum culpa accusantium.</textarea>
+    <h1>Submit your review for name of game</h1>
 
-      <div class="d-flex justify-content-around my-3">
-        <button @submit.prevent="createReview" class="create-button">Create Review</button>
-        <!-- <button class="publish-button">Publish Review</button> -->
-      </div>
+    <div class="col-12 ml-5 mr-5">
+      <form @submit.prevent="createReview">
+        <div class="mb-3">
+          <label class="form-label" for="title">Review Title</label>
+          <input v-model="editableReviewData.title" class="form-control" id="title" name="title" type="text" required
+            minlength="3" maxlength="50" placeholder="Title your review">
+        </div>
+        <label class="form-label" for="gameplay-score">Gameplay Score</label>
+        <select v-model="editableReviewData.gameplayScore" class="form-select" name="gameplay-score" id="gameplay-score"
+          placeholder="Gameplay Score" min="1" max="10" required>Gameplay Score
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        <label class="form-label" for="story-score">Story Score</label>
+        <select v-model="editableReviewData.storyScore" class="form-select" name="story-score" id="story-score" min="1"
+          max="10" required>Story Score
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        <label class="form-label" for="graphics-score">Graphics Score</label>
+        <select v-model="editableReviewData.graphicsScore" class="form-select" name="graphics-score" id="graphics-score"
+          min="1" max="10" required>Graphics Score
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        <label class="form-label" for="alpha-score">Alpha Score</label>
+        <select v-model="editableReviewData.alphaScore" class="form-select" name="alpha-score" id="alpha-score" min="1"
+          max="10" required>Alpha Score
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        <label class="form-label" for="body">Review Body</label>
+        <textarea v-model="editableReviewData.body" rows="15" class="w-100 form-control" name="body" maxlength="5000"
+          minlength="3" id="body" type="text"
+          required>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum dignissimos vel cumque libero nesciunt tempore nemo quam, fugit esse dolorum aut veritatis laudantium tempora architecto veniam, quidem eveniet quas deserunt, nam repellendus! Quaerat aut voluptatem praesentium ea error ipsum quidem tempora tenetur! Ut exercitationem officia aliquam minima, harum culpa accusantium.</textarea>
+
+        <div class="d-flex justify-content-around my-3">
+          <button @submit.prevent="createReview" class="create-button">Create Review</button>
+          <!-- <button class="publish-button">Publish Review</button> -->
+        </div>
 
 
-    </form>
+      </form>
 
+
+
+    </div>
 
 
   </div>
-
-
 </template>
 
 
