@@ -8,7 +8,7 @@ import { AppState } from './AppState.js';
   <header>
     <Navbar />
   </header>
-  <main>
+  <main class="hero-img">
     <router-view />
   </main>
   <!-- <footer class="bg-dark text-light">
@@ -27,5 +27,13 @@ footer {
   display: grid;
   place-content: center;
   height: 32px;
+}
+
+.hero-img {
+  background-image: url("https://i.postimg.cc/W4SQb5sP/image-7.jpg");
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 </style>
