@@ -5,6 +5,9 @@ import { Account } from "@/models/Account.js"
 
 
 class ProfilesService {
+  async updateProfileDetails(profileData) {
+    const response = await api.put('api/account')
+  }
   async getProfileById(profileId) {
     AppState.activeProfile = null
     const response = await api.get(`api/profiles/${profileId}`)
