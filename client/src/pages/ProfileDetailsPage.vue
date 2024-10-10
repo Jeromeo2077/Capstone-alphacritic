@@ -13,7 +13,7 @@ const route = useRoute()
 watch(() => route.params.profileId, () => {
   getAllReviews()
   getProfileById()
-})
+}, { immediate: true })
 
 const reviews = computed(() => AppState.reviews)
 const profile = computed(() => AppState.activeProfile)
