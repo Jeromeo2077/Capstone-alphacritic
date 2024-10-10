@@ -10,7 +10,7 @@ import { dbContext } from '../db/DbContext'
 async function createAccountIfNeeded(account, user) {
   if (!account) {
     user._id = user.id
-    if(typeof user.name == 'string' && user.name.includes('@')){
+    if (typeof user.name == 'string' && user.name.includes('@')) {
       user.name = user.nickname
     }
     account = await dbContext.Account.create({
@@ -40,7 +40,16 @@ async function mergeSubsIfNeeded(account, user) {
 function sanitizeBody(body) {
   const writable = {
     name: body.name,
-    picture: body.picture
+    picture: body.picture,
+    bio: body.bio,
+    coverImg: body.coverImg,
+    youtubeLink: body.youtubeLink,
+    twitchLink: body.twitchLink,
+    discordLink: body.discordLink,
+    embedYoutubeChannel: body.embedYoutubeChannel,
+    userProfileImg: body.userProfileImg
+
+
   }
   return writable
 }

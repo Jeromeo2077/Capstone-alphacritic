@@ -20,7 +20,10 @@ export const AppState = reactive({
   activeReview: null,
 
   /**@type {Review[]} */
-  gameReviews: []
+  gameReviews: [],
+
+  /** @type {import('./models/Account.js').Account} */
+  activeProfile: null
 
 })
 

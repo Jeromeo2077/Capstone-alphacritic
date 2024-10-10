@@ -1,9 +1,12 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { loadState, saveState } from '../utils/Store.js';
 import Login from './Login.vue';
+import { AppState } from "@/AppState.js";
 
 const theme = ref(loadState('theme') || 'light')
+
+const account = computed(() => AppState.account)
 
 onMounted(() => {
   document.documentElement.setAttribute('data-bs-theme', theme.value)
@@ -41,8 +44,9 @@ function toggleTheme() {
             About
           </router-link>
         </li>
-        <li>
-          <router-link :to="{ name: 'Profile' }" class="btn navbar-link lighten-30 selectable text-uppercase">
+        <li v-if="account">
+          <router-link :to="{ name: 'Profile', params: { profileId: account.id } }"
+            class="btn navbar-link lighten-30 selectable text-uppercase">
             Profile
           </router-link>
         </li>
