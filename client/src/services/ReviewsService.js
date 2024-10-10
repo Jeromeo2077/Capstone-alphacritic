@@ -68,7 +68,7 @@ class ReviewsService {
     AppState.activeReview.isPublished = !AppState.activeReview.isPublished
     const reviewToPublish = AppState.activeReview
         
-    await api.put(`api/reviews/${reviewId}`, reviewToPublish)
+    await api.put(`api/reviews/${reviewId}/publish`, reviewToPublish)
 
     return `Review ${reviewToPublish.isPublished ? 'Published' : 'Unpublished'}!`
   }
