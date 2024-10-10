@@ -38,7 +38,7 @@ async function getAllReviews() {
 
 <template>
   <!-- SUP JEROME -->
-  <div class="container-fluid">
+  <div class="container">
     <section class="row">
 
       <div class="col-md-12">

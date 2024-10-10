@@ -25,7 +25,7 @@ defineProps({ reviews: { type: Review, required: true } })
         <RouterLink :to="{ name: 'Profile', params: { profileId: reviews.creator.id } }">
           <img :src="reviews.creator.picture" class="profile-img" alt="">
         </RouterLink>
-        <span class="fs-4 text-decoration-underline p-3">{{ reviews.title }}</span>
+        <span class="fs-5 text-decoration-underline p-3">{{ reviews.title }}</span>
         <div class="d-flex justify-content-around align-items-center text-center alphaScore-bg">
           <span class="fs-3 fw-bold">{{ reviews.alphaScoreAggregate }}</span>
         </div>
@@ -49,15 +49,15 @@ defineProps({ reviews: { type: Review, required: true } })
 }
 
 .profile-img {
-  max-height: 8dvh;
-  max-width: 8dvh;
+  max-height: 5dvh;
+  max-width: 5dvh;
   border-radius: 5dvh;
 }
 
 .alphaScore-bg {
   background-color: #BB0A0A;
   border-radius: .5rem;
-  min-width: 8dvh;
-  min-height: 8dvh;
+  min-width: 5dvh;
+  min-height: 5dvh;
 }
 </style>
