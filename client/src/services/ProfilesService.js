@@ -6,7 +6,11 @@ import { Account } from "@/models/Account.js"
 
 class ProfilesService {
   async updateProfileDetails(profileData) {
-    const response = await api.put('api/account')
+    const response = await api.put('account', profileData)
+    logger.log('Updating profile', response.data)
+    const updatedProfile = new Account(response.data)
+    AppState.account = updatedProfile
+
   }
   async getProfileById(profileId) {
     AppState.activeProfile = null
