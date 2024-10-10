@@ -3,7 +3,6 @@ import { api } from "./AxiosService.js"
 import { Review } from "@/models/Review.js"
 import { AppState } from "@/AppState.js"
 import Pop from "@/utils/Pop.js"
-import App from "@/App.vue"
 
 
 class ReviewsService {
