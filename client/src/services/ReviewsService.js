@@ -9,6 +9,31 @@ import App from "@/App.vue"
 class ReviewsService {
   
   
+  async getReviewsByCreatorId(profileId) {
+    AppState.reviews = []
+    const response = await api.get(`api/reviews?profileId=${profileId}`)
+    logger.log('GOT REVIEWS FOR PROFILE', response.data)
+    const newReviews = response.data.map(reviewPOJO => new Review(reviewPOJO))
+    AppState.reviews = newReviews
+  }
+
+  async deleteReview(reviewId) {
+    try {
+      const fullReview = await this.getReviewByReviewId(reviewId)
+      logger.log('full review log', fullReview)
+      logger.log('deleting review for ID', reviewId)
+
+      const indexToDelete = AppState.gameReviews.findIndex(review => review.id == reviewId)
+      const response = await api.delete(`api/reviews/${reviewId}`)
+      logger.log(`requesting delete`, response.data, reviewId)
+      AppState.gameReviews.splice(indexToDelete, 1)
+
+    }
+    catch (error) {
+      Pop.error(error);
+    }
+  }
+
   async getReviewsByGameId(gameId) {
     const response = await api.get(`api/reviews?gameId=${gameId}`)
     logger.log('getting reviews by game ID', response.data)
@@ -39,23 +64,7 @@ class ReviewsService {
     return newReview
   }
 
-  async deleteReview(reviewId) {
-    try {
-      const fullReview = await this.getReviewByReviewId(reviewId)
-      logger.log('full review log', fullReview)
-      logger.log('deleting review for ID', reviewId)
       
-      const indexToDelete = AppState.gameReviews.findIndex(review => review.id == reviewId)
-      const response = await api.delete(`api/reviews/${reviewId}`)
-      logger.log(`requesting delete`, response.data, reviewId)
-      AppState.gameReviews.splice(indexToDelete, 1)
-      
-    }
-    catch (error) {
-      Pop.error(error);
-    }
-  }
-  
   async publishReview(reviewId) {
     AppState.activeReview.isPublished = !AppState.activeReview.isPublished
     const reviewToPublish = AppState.activeReview

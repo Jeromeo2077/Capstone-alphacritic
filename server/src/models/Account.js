@@ -9,7 +9,6 @@ export const AccountSchema = new Schema(
     picture: { type: String },
     // NOTE If you wish to add additional properties do so here
     // NOTE for profiles
-    creatorId: { type: Schema.Types.ObjectId, ref: '', required: true },
     bio: { type: String, minlength: 3, maxlength: 150 },
     coverImg: { type: String, minlength: 1, maxlength: 500, },
     youtubeLink: { type: String, minlength: 1, maxlength: 500 },
