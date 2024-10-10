@@ -38,7 +38,7 @@ async function getAllReviews() {
 
 <template>
   <!-- SUP JEROME -->
-  <div class="container-fluid">
+  <div class="container">
     <section class="row">
 
       <div class="col-md-12">
@@ -49,13 +49,13 @@ async function getAllReviews() {
     <section class="row">
 
       <div class="col-md-12 mt-3">
-        <div class="m-5">
+        <div class="">
           <div class="fw-bold fs-3 text-shadow text-light text-center">
             NEWEST ALPHA SCORES
           </div>
-          <section class="row bg-text p-2 mx-3">
+          <section class="row bg-text p-3 mx-5">
 
-            <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3 text-scale-down">
+            <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3 g-3">
               <ReviewCard :reviews="reviews" />
             </div>
 
@@ -68,15 +68,15 @@ async function getAllReviews() {
 
     <section class="row">
 
-      <div class="col-md-12 mt-3 mb-5">
-        <div class="m-5">
+      <div class="col-md-12 mt-5 mb-5">
+        <div class="">
           <div class="fw-bold fs-3 text-shadow text-light text-center">
             HIGHEST ALPHA SCORES
           </div>
 
-          <section class="row bg-text p-2 mx-3">
+          <section class="row bg-text p-3 mx-5">
 
-            <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3">
+            <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3 g-3">
               <ReviewCard :reviews="reviews" />
             </div>
           </section>
