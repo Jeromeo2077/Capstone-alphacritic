@@ -68,7 +68,7 @@ async function getReviewsByGameId() {
             <div>
               <div class="d-flex justify-content-between">
                 <span class="fs-4 fw-bold">APLHASCORE: </span>
-                <div class="alphaScore-bg text-center">
+                <div class="alphaScore-bg d-flex align-items-center justify-content-center ">
                   <span class="fs-1 fw-bold">8</span>
                 </div>
               </div>
@@ -98,7 +98,7 @@ async function getReviewsByGameId() {
       </div>
     </section>
 
-    <section class="row bg-text p-3 mx-5">
+    <section class="row bg-text p-3">
       <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3 g-3">
         <div class="text-scale-down">
           <ReviewCard :reviews="reviews" />
