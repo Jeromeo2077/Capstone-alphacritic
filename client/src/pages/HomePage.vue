@@ -3,25 +3,18 @@ import { AppState } from "@/AppState.js";
 import ReviewCard from "@/components/globals/ReviewCard.vue";
 import { reviewsService } from "@/services/ReviewsService.js";
 import Pop from "@/utils/Pop.js";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 
 onMounted(() => {
   getAllReviews()
 })
 
-const reviews = computed(() => AppState.reviews)
+const sortBy = ref('alphaScoreAggregate')
 
 
-
-
-// async function getReviewByReviewId(){
-//  try {
-
-//  }
-//  catch (error){
-//    Pop.error(error);
-//  } 
-// }
+const reviewsAlphaScoreAggregate = computed(() => {
+  return AppState.reviews.sort((a, b) => b[sortBy.value] - a[sortBy.value])
+})
 
 async function getAllReviews() {
   try {
@@ -32,7 +25,6 @@ async function getAllReviews() {
     Pop.error(error);
   }
 }
-
 
 </script>
 
@@ -55,7 +47,7 @@ async function getAllReviews() {
           </div>
           <section class="row bg-text p-3">
 
-            <div v-for="reviews in reviews" :key="reviews.id" class="col-lg-3 g-3">
+            <div v-for="reviews in reviewsAlphaScoreAggregate" :key="reviews.id" class="col-lg-3 g-3">
               <ReviewCard :reviews="reviews" />
             </div>
 
@@ -76,7 +68,7 @@ async function getAllReviews() {
 
           <section class="row bg-text p-3">
 
-            <div v-for="reviews in reviews" :key="reviews.id" class="col-lg-3 g-3">
+            <div v-for="reviews in reviewsAlphaScoreAggregate" :key="reviews.id" class="col-lg-3 g-3">
               <ReviewCard :reviews="reviews" />
             </div>
           </section>
