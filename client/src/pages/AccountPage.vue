@@ -11,12 +11,12 @@ const route = useRoute()
 
 const editableProfileData = ref({
   bio: '',
-  userProfileImg: '',
+  picture: '',
   coverImg: '',
   youtubeLink: '',
   twitchLink: '',
   discordLink: '',
-
+  embedYoutubeLink: '',
 })
 
 
@@ -28,11 +28,12 @@ async function updateProfileDetails() {
 
   editableProfileData.value = {
     bio: '',
-    userProfileImg: '',
+    picture: '',
     coverImg: '',
     youtubeLink: '',
     twitchLink: '',
     discordLink: '',
+    embedYoutubeLink: '',
   }
 
   router.push({ name: 'Profile', params: { profileId: account.value.id } })
@@ -48,7 +49,7 @@ async function updateProfileDetails() {
     <div class="about text-center ">
       <div v-if="account">
         <h1 class="text-light">Welcome {{ account.name }}</h1>
-        <img class="rounded" :src="account.userProfileImg" alt="" />
+        <img class="rounded" :src="account.picture" alt="" />
         <p class="text-light">{{ account.email }}</p>
       </div>
       <div v-else>
@@ -63,9 +64,9 @@ async function updateProfileDetails() {
             minlength="3" maxlength="150" placeholder="Create your bio">
         </div>
         <div class="mb-3 text-center">-
-          <label class="form-label text-light" for="userProfileImg">Add a profile image!</label>
-          <input v-model="editableProfileData.userProfileImg" class="form-control input-body" id="userProfileImg"
-            name="userProfileImg" type="string" minlength="1" maxlength="500" placeholder="Add a profile image!">
+          <label class="form-label text-light" for="picture">Add a profile image!</label>
+          <input v-model="editableProfileData.picture" class="form-control input-body" id="picture" name="picture"
+            type="string" minlength="1" maxlength="500" placeholder="Add a profile image!">
         </div>
         <div class="mb-3 text-center">
           <label class="form-label text-light" for="coverImg">Cover Image</label>
@@ -87,9 +88,14 @@ async function updateProfileDetails() {
           <input v-model="editableProfileData.discordLink" class="form-control input-body" id="discordLink"
             name="discordLink" type="string" minlength="1" maxlength="500" placeholder="Link your Discord channel!">
         </div>
+        <div class="mb-3 text-center">
+          <label class="form-label text-light" for="embedYoutubeLink">Embed a youtube video!</label>
+          <input v-model="editableProfileData.embedYoutubeLink" class="form-control input-body" id="embedYoutubeLink"
+            name="embedYoutubeLink" type="string" minlength="1" maxlength="500" placeholder="Embed a youtube video!">
+        </div>
         <div class="mb-3 d-flex justify-content-center">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/mifHo9fC5QI?si=GrcVzikt0lYP8Cqb"
-            title="YouTube video player" frameborder="0"
+          <iframe width="560" height="315" :src="editableProfileData.embedYoutubeLink" title="YouTube video player"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
