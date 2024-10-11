@@ -26,7 +26,7 @@ const reviews = computed(() => AppState.reviews)
 async function getAllReviews() {
   try {
 
-    await reviewsService.getAllReviews()
+    await reviewsService.getAllPublishedReviews()
   }
   catch (error) {
     Pop.error(error);

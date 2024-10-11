@@ -53,8 +53,8 @@ class ReviewsService {
     AppState.activeReview = new Review(response.data)
   }
 
-  async getAllReviews() {
-    const response = await api.get('api/reviews')
+  async getAllPublishedReviews() {
+    const response = await api.get('api/reviews?isPublished=true')
     const reviews = response.data.map(reviewData => new Review(reviewData))
     logger.log('getting all reviews', response.data)
     AppState.reviews = reviews
