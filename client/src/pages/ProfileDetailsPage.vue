@@ -90,16 +90,18 @@ async function getAllReviews() {
 
         <div class="bg-text text-light text-shadow p-3 m-3">
           <div class="fs-1 fw-bold">BIO</div>
-
-
           <div>{{ profile.bio }}
             <div class="mx-3 d-flex justify-content-around">
-              <a v-if="profile.twitchLink" :href="profile.twitchLink" target="_blank" class="mdi mdi-twitch"></a>
-              <a v-if="profile.youtubeLink" :href="profile.youtubeLink" target="_blank" class="mdi mdi-youtube"></a>
+              <a v-if="profile.twitchLink" :href="profile.twitchLink" target="_blank"
+                class="mdi mdi-twitch fs-2 text-light"></a>
+              <a v-if="profile.youtubeLink" :href="profile.youtubeLink" target="_blank"
+                class="mdi mdi-youtube fs-2 text-light"></a>
             </div>
           </div>
         </div>
       </div>
+
+
 
     </section>
 
