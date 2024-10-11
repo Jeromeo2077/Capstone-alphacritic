@@ -73,7 +73,7 @@ async function getAllReviews() {
       <div class="col-md-12">
         <div class="d-flex align-items-center profile-banner-img mt-5 mb-3">
           <div>
-            <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img ms-3" alt="">
+            <img :src="profile.picture" class="profile-img ms-3" alt="">
           </div>
           <div class="mx-3 fw-bold fs-1">
             {{ profile.name }}
