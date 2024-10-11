@@ -36,7 +36,7 @@
             <div class="fs-1 fw-bold ms-3">James Chapman</div>
           </div>
           <div class="mt-3">
-            <div class="fs-6">Hey there! I’m James, a full stack developer in training. I spend my days battling bugs in
+            <div class="fs-6">I'm a full stack developer in training. I spend my days battling bugs in
               code and my nights being gently assaulted by my overly enthusiastic dog—who thinks my leg is a chew toy.
 
               When I'm not getting nibbled on, I’m out enjoying the great outdoors, attempting to convince squirrels to
