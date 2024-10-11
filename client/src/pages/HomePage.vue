@@ -3,26 +3,19 @@ import { AppState } from "@/AppState.js";
 import ReviewCard from "@/components/globals/ReviewCard.vue";
 import { reviewsService } from "@/services/ReviewsService.js";
 import Pop from "@/utils/Pop.js";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 
 onMounted(() => {
   getAllReviews()
 })
 
+const sortBy = ref('alphaScoreAggregate')
+
+
 // eslint-disable-next-line no-unused-vars
-const reviews = computed(() => AppState.reviews)
-
-
-
-
-// async function getReviewByReviewId(){
-//  try {
-
-//  }
-//  catch (error){
-//    Pop.error(error);
-//  } 
-// }
+const reviews = computed(() => {
+  return AppState.reviews.sort((a, b) => b[sortBy.value] - a[sortBy.value])
+})
 
 async function getAllReviews() {
   try {
