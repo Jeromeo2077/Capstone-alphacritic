@@ -45,15 +45,31 @@
     <section class="row">
 
       <div class="col-md-12">
-        <div class="d-flex flex-column bg-text p-3 mt-3">
+        <div class="d-flex flex-column bg-text p-3 my-3">
           <div class="d-flex align-items-center">
             <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-            <div class="fs-1 fw-bold ms-3">CREATOR NAME</div>
+            <div class="fs-1 fw-bold ms-3">Kevin Koontz</div>
           </div>
           <div class="mt-3">
-            <div class="fs-6">BIO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, sequi assumenda
-              soluta aliquid a deleniti modi placeat reprehenderit corrupti natus. Molestias optio quod dolor incidunt
-              culpa ratione porro ipsa blanditiis?</div>
+            <div class="fs-6">Kevin is a full-stack developer by trade, but in his heart, he's a certified tech wizard,
+              blending code like a master chef mixes spices. When he's not turning coffee into code, he's probably
+              debugging his life choices or trying to convince his plants that CSS can make them grow.
+              <br /><br />
+              Specialties include:
+              <br />
+              <span style="margin-left: 20px">HTML - Because everything needs a good foundation, just like his daily
+                stack of pancakes.</span> <br />
+              <span style="margin-left: 20px">CSS - Making the web pretty, one pixel at a time. He believes in beauty,
+                even if it's just in the
+                backend.</span><br />
+              <span style="margin-left: 20px">JavaScript - His love language, though he's still trying to understand its
+                dark, asynchronous
+                secrets.</span><br /><br />
+
+              Kevin spends his free time teaching his dog how to fetch data instead of just sticks, and arguing with
+              his
+              smart home devices about who's really in charge.
+            </div>
           </div>
         </div>
       </div>
