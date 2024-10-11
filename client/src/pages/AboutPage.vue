@@ -33,12 +33,11 @@
         <div class="d-flex flex-column bg-text p-3 mt-3">
           <div class="d-flex align-items-center">
             <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-            <div class="fs-1 fw-bold ms-3">CREATOR NAME</div>
+            <div class="fs-1 fw-bold ms-3">James Chapman</div>
           </div>
           <div class="mt-3">
-            <div class="fs-6">BIO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, sequi assumenda
-              soluta aliquid a deleniti modi placeat reprehenderit corrupti natus. Molestias optio quod dolor incidunt
-              culpa ratione porro ipsa blanditiis?</div>
+            <div class="fs-6">Tech, dog and outdoors lover that's feeling kinda froggy - just don't dunk on me or I'll
+              have to tell my mommy.</div>
           </div>
         </div>
       </div>
