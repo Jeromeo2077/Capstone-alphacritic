@@ -49,8 +49,8 @@ async function deleteReview() {
 async function publishReview() {
   try {
     const reviewId = route.params.reviewId
-    await reviewsService.publishReview(reviewId)
-    await Pop.toast(`You've published your review!`)
+    const message = await reviewsService.publishReview(reviewId)
+    await Pop.toast(message)
   }
   catch (error) {
     Pop.error(error);
