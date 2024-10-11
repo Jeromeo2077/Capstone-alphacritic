@@ -69,21 +69,22 @@ async function getGameByGenre(genre) {
 <template>
 
   <div class="container">
-    <div class="row">
+    <section class="row">
 
       <!-- SECTION buttons -->
-      <div class="d-flex justify-content-around align-items-center mt-5">
-        <div v-for="genre in filterCategories" :key="genre.text">
-          <button @click.prevent="getGameByGenre(genre.text)" class="rounded genre-buttons text-uppercase"
-            type="button">{{
-              genre.text
-            }}</button>
-        </div>
+      <div v-for="genre in filterCategories" :key="genre.text" class="d-flex flex-column col-12 col-md-6 col-lg-3 g-3">
+        <button @click.prevent="getGameByGenre(genre.text)" class="rounded genre-buttons text-uppercase text-light"
+          type="button">{{
+            genre.text
+          }}</button>
       </div>
+    </section>
 
 
 
-      <!-- SECTION Game Card  -->
+    <!-- SECTION Game Card  -->
+    <section class="row">
+
       <div v-for="filteredGame in games" :key="filteredGame.id"
         class="col-12 col-md-6 col-lg-3 g-3 d-flex align-items-stretch">
         <RouterLink :to="{ name: 'GameDetails', params: { gameId: filteredGame.id } }">
@@ -91,7 +92,7 @@ async function getGameByGenre(genre) {
         </RouterLink>
 
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -101,7 +102,6 @@ async function getGameByGenre(genre) {
   background-color: #BB0A0A;
   font-weight: bolder;
   box-shadow: 1px 2px 2px black;
-  width: 25dvh;
 }
 
 .bg-text {
