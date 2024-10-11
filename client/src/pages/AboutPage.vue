@@ -36,8 +36,15 @@
             <div class="fs-1 fw-bold ms-3">James Chapman</div>
           </div>
           <div class="mt-3">
-            <div class="fs-6">Tech, dog and outdoors lover that's feeling kinda froggy - just don't dunk on me or I'll
-              have to tell my mommy.</div>
+            <div class="fs-6">Hey there! I’m James, a full stack developer in training. I spend my days battling bugs in
+              code and my nights being gently assaulted by my overly enthusiastic dog—who thinks my leg is a chew toy.
+
+              When I'm not getting nibbled on, I’m out enjoying the great outdoors, attempting to convince squirrels to
+              code for me. Tech and nature are my jam, even if my dog believes every hiking trail is a potential chew
+              zone.
+
+              Join me as I navigate the wild world of programming and puppy parenting, where every day is an
+              adventure—and a potential trip to the vet!</div>
           </div>
         </div>
       </div>
