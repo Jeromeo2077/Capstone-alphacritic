@@ -88,8 +88,7 @@ async function getAllReviews() {
       <div class="col-md-12">
         <div class="bg-text text-light text-shadow p-3 m-3">
           <div class="fs-1 fw-bold">BIO</div>
-          <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, magnam laudantium nihil ex quis cumque
-            sed sint illo possimus voluptates reiciendis, omnis dolore dolorem aut ipsum laborum alias libero nisi.
+          <div>{{ profile.bio }}
           </div>
         </div>
       </div>
