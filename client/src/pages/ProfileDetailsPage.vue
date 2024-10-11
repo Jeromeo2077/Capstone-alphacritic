@@ -71,7 +71,8 @@ async function getAllReviews() {
 
     <section class="row">
       <div class="col-md-12">
-        <div class="d-flex align-items-center profile-banner-img mt-5 mb-3">
+        <div class="d-flex align-items-center profile-banner-img mt-5 mb-3"
+          :style="{ backgroundImage: `url(${profile.coverImg})` }">
           <div>
             <img :src="profile.picture" class="profile-img ms-3" alt="">
           </div>
@@ -89,17 +90,18 @@ async function getAllReviews() {
 
         <div class="bg-text text-light text-shadow p-3 m-3">
           <div class="fs-1 fw-bold">BIO</div>
-
-
           <div>{{ profile.bio }}
-            <div class="mx-3">
-              <a v-if="profile.twitchLink" :href="profile.twitchLink" target="_blank" class="mdi mdi-twitch"></a>
+            <div class="mx-3 d-flex justify-content-around">
+              <a v-if="profile.twitchLink" :href="profile.twitchLink" target="_blank"
+                class="mdi mdi-twitch fs-2 text-light"></a>
+              <a v-if="profile.youtubeLink" :href="profile.youtubeLink" target="_blank"
+                class="mdi mdi-youtube fs-2 text-light"></a>
             </div>
-            <a v-if="profile.youtubeLink" :href="profile.youtubeLink" target="_blank" class="mdi mdi-youtube">{{
-              profile.youtubeLink }}</a>
           </div>
         </div>
       </div>
+
+
 
     </section>
 
@@ -151,15 +153,15 @@ async function getAllReviews() {
 }
 
 .profile-banner-img {
-  height: 15dvh;
+  height: 20dvh;
   width: 100%;
   border-radius: .5rem;
-  background-image: url(`profile.coverImg`);
-  background-color: #BB0A0A;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
+
 
 .bg-text {
   background-color: rgba(0, 0, 0, 0.25);

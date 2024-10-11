@@ -15,8 +15,8 @@ const editableProfileData = ref({
   coverImg: '',
   youtubeLink: '',
   twitchLink: '',
-  discordLink: '',
-  embedYoutubeLink: '',
+  // discordLink: '',
+  // embedYoutubeLink: '',
 })
 
 
@@ -32,8 +32,8 @@ async function updateProfileDetails() {
     coverImg: '',
     youtubeLink: '',
     twitchLink: '',
-    discordLink: '',
-    embedYoutubeLink: '',
+    // discordLink: '',
+    // embedYoutubeLink: '',
   }
 
   // router.push({ name: 'Profile', params: { profileId: account.value.id } })
