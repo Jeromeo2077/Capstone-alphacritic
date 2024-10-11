@@ -42,6 +42,8 @@ const props = defineProps({
   object-fit: cover;
   object-position: center;
   width: 450px;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .text-shadow {
@@ -49,7 +51,7 @@ const props = defineProps({
 }
 
 .bg-text {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(187, 10, 10, 0.75);
   backdrop-filter: blur(8px);
   border-radius: 1rem;
 }

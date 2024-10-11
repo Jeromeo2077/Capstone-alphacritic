@@ -102,13 +102,7 @@ async function getGameByGenre(genre) {
 .genre-buttons {
   font-weight: bolder;
   box-shadow: 1px 2px 2px black;
-  background-color: rgba(187, 10, 10, 0.50);
-  backdrop-filter: blur(8px);
-  border-radius: 1rem;
-}
-
-.bg-text {
-  background-color: rgba(0, 0, 0, 0.50);
+  background-color: rgba(187, 10, 10, 0.75);
   backdrop-filter: blur(8px);
   border-radius: 1rem;
 }
