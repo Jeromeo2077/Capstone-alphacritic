@@ -51,6 +51,8 @@ defineProps({ reviews: { type: Review, required: true } })
   max-height: 5dvh;
   max-width: 5dvh;
   border-radius: 5dvh;
+  object-fit: cover;
+  object-position: center;
 }
 
 .alphaScore-bg {
