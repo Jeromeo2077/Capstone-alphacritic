@@ -12,8 +12,7 @@
           <div>Alphacritic is a community-driven game review site where gamers can congregate to find
             information on games popular with other gamers, leave their own game reviews, and chat/discuss/share
             memes/flame war with other gamers! <br /> <br />Grab your sword and shield and meet us for battle on the
-            front lines of
-            gamer wars!</div>
+            front lines of the gamer wars!</div>
         </div>
       </div>
     </section>
@@ -96,15 +95,6 @@
     </section>
 
   </div>
-
-  <!-- <div class="row p-3">
-      <div class="col-12">
-        <p>Alphacritic is a community-driven game review site where gamers can congregate to find
-          information on games popular with other gamers, leave their own game reviews, and chat/discuss/share
-          memes/flame war with other gamers! Grab your sword and shield and meet us for battle on the front lines of
-          gamer wars!</p>
-      </div>
-    </div> -->
 </template>
 
 <style scoped lang="scss">
