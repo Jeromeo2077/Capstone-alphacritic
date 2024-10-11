@@ -85,10 +85,18 @@ async function getAllReviews() {
 
     <section class="row">
 
-      <div class="col-md-12">
+      <div class="col-md-12 cover-image">
+
         <div class="bg-text text-light text-shadow p-3 m-3">
           <div class="fs-1 fw-bold">BIO</div>
+
+
           <div>{{ profile.bio }}
+            <div class="mx-3">
+              <a v-if="profile.twitchLink" :href="profile.twitchLink" target="_blank" class="mdi mdi-twitch"></a>
+            </div>
+            <a v-if="profile.youtubeLink" :href="profile.youtubeLink" target="_blank" class="mdi mdi-youtube">{{
+              profile.youtubeLink }}</a>
           </div>
         </div>
       </div>
@@ -98,6 +106,7 @@ async function getAllReviews() {
     <section class="row">
 
       <div class="col-md-12 mt-5">
+
         <div class="fs-3 fw-bold text-shadow text-light">MY PINNED REVIEWS</div>
 
         <section class="row bg-text m-3 p-3">
@@ -144,8 +153,12 @@ async function getAllReviews() {
 .profile-banner-img {
   height: 15dvh;
   width: 100%;
-  background-color: #bb0a0a;
   border-radius: .5rem;
+  background-image: url(`profile.coverImg`);
+  background-color: #BB0A0A;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .bg-text {
