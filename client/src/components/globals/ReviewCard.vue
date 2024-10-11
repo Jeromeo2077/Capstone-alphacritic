@@ -53,6 +53,7 @@ defineProps({ reviews: { type: Review, required: true } })
   border-radius: 5dvh;
   object-fit: cover;
   object-position: center;
+  aspect-ratio: 1/1;
 }
 
 .alphaScore-bg {
