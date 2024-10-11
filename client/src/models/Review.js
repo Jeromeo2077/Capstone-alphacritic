@@ -7,7 +7,7 @@ export class Review {
     this.gameplayScore = data.gameplayScore
     this.storyScore = data.storyScore
     this.graphicsScore = data.graphicsScore
-    this.createdAt = data.createdAt
+    this.createdAt = new Date(data.createdAt)
     this.isPublished = data.isPublished
     this.isPinned = data.isPinned
     this.creator = data.creator
@@ -23,7 +23,7 @@ export class Review {
       month: '2-digit',
       day: '2-digit',
       hour: '2-digit',
-      minute: '2-digit',
+      minute: '0-digit',
       hour12: true,
       timeZone: 'America/Denver'
     };
