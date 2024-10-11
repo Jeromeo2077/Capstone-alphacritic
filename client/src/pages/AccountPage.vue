@@ -59,33 +59,33 @@ async function updateProfileDetails() {
       <form @submit="updateProfileDetails">
         <div class="mb-3 text-center">
           <label class="form-label text-light" for="title">Bio</label>
-          <input v-model="editableProfileData.bio" class="form-control" id="bio" name="bio" type="text" minlength="3"
-            maxlength="150" placeholder="Create your bio">
+          <input v-model="editableProfileData.bio" class="form-control input-body" id="bio" name="bio" type="text"
+            minlength="3" maxlength="150" placeholder="Create your bio">
         </div>
-        <div class="mb-3 text-center">
+        <div class="mb-3 text-center">-
           <label class="form-label text-light" for="userProfileImg">Add a profile image!</label>
-          <input v-model="editableProfileData.userProfileImg" class="form-control" id="userProfileImg"
+          <input v-model="editableProfileData.userProfileImg" class="form-control input-body" id="userProfileImg"
             name="userProfileImg" type="string" minlength="1" maxlength="500" placeholder="Add a profile image!">
         </div>
         <div class="mb-3 text-center">
           <label class="form-label text-light" for="coverImg">Cover Image</label>
-          <input v-model="editableProfileData.coverImg" class="form-control" id="coverImg" name="coverImg" type="string"
-            minlength="1" maxlength="500" placeholder="Create a cover image">
+          <input v-model="editableProfileData.coverImg" class="form-control input-body" id="coverImg" name="coverImg"
+            type="string" minlength="1" maxlength="500" placeholder="Create a cover image">
         </div>
         <div class="mb-3 text-center">
           <label class="form-label text-light" for="youtubeLink">Link your youtube channel!</label>
-          <input v-model="editableProfileData.youtubeLink" class="form-control" id="youtubeLink" name="youtubeLink"
-            type="string" minlength="1" maxlength="500" placeholder="Link your youtube channel!">
+          <input v-model="editableProfileData.youtubeLink" class="form-control input-body" id="youtubeLink"
+            name="youtubeLink" type="string" minlength="1" maxlength="500" placeholder="Link your youtube channel!">
         </div>
         <div class="mb-3 text-center">
           <label class="form-label text-light" for="twitchLink">Link your Twitch Channel</label>
-          <input v-model="editableProfileData.twitchLink" class="form-control" id="twitchLink" name="twitchLink"
-            type="string" minlength="1" maxlength="500" placeholder="Link your Twitch channel!">
+          <input v-model="editableProfileData.twitchLink" class="form-control input-body" id="twitchLink"
+            name="twitchLink" type="string" minlength="1" maxlength="500" placeholder="Link your Twitch channel!">
         </div>
         <div class="mb-3 text-center">
           <label class="form-label text-light" for="discordLink">Link your Discord Channel</label>
-          <input v-model="editableProfileData.discordLink" class="form-control" id="discordLink" name="discordLink"
-            type="string" minlength="1" maxlength="500" placeholder="Link your Discord channel!">
+          <input v-model="editableProfileData.discordLink" class="form-control input-body" id="discordLink"
+            name="discordLink" type="string" minlength="1" maxlength="500" placeholder="Link your Discord channel!">
         </div>
         <div class="mb-3 d-flex justify-content-center">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/mifHo9fC5QI?si=GrcVzikt0lYP8Cqb"
@@ -94,7 +94,7 @@ async function updateProfileDetails() {
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div class="mb-3 d-flex align-items-center justify-content-center">
-          <button class="rounded btn btn-success">Save profile details!</button>
+          <button class="rounded btn btn-success save-button">Save profile details!</button>
         </div>
       </form>
     </div>
@@ -105,5 +105,14 @@ async function updateProfileDetails() {
 <style scoped lang="scss">
 img {
   max-width: 100px;
+}
+
+.input-body {
+  box-shadow: 1px 2px 2px black;
+}
+
+.save-button {
+  font-weight: bolder;
+  box-shadow: 1px 2px 2px black;
 }
 </style>
