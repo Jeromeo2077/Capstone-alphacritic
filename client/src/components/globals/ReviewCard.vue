@@ -30,7 +30,7 @@ defineProps({ reviews: { type: Review, required: true } })
         </div>
       </div>
       <p class="mt-1">{{ reviews.body }}</p>
-      <div>{{ reviews.createdAt }}</div>
+      <div>{{ reviews.formattedCreatedDate }}</div>
     </div>
 
   </RouterLink>

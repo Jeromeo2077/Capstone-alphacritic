@@ -69,7 +69,7 @@ async function publishReview() {
             <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img ms-3" alt="">
           </div>
           <div class="mx-3 fw-bold fs-1 text-light text-shadow">
-            Profile Name
+            {{ review.creator.name }}
           </div>
         </div>
       </div>
@@ -108,9 +108,14 @@ async function publishReview() {
           <p class="p-3">{{ review.body }}</p>
         </div>
       </div>
-      <div v-if="account && review.creatorId == account.id">
+      <div v-if="account && review.creatorId == account.id" class="d-flex">
         <button @click="deleteReview" class="m-3">Delete</button>
-        <button @click="publishReview" class="m-3">Publish</button>
+        <div v-if="review.isPublished == true">
+          <button @click="publishReview" class="m-3">Unpublish</button>
+        </div>
+        <div v-else>
+          <button @click="publishReview" class="m-3">Publish</button>
+        </div>
       </div>
     </section>
   </div>
