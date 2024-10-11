@@ -19,7 +19,7 @@ class ReviewsService {
     logger.log('GOT REVIEWS FOR PROFILE', response.data)
     const newReviews = response.data.map(reviewPOJO => new Review(reviewPOJO))
     AppState.reviews = newReviews
-    // return newReviews
+    return newReviews
   }
 
   async deleteReview(reviewId) {
