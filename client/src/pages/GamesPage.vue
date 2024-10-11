@@ -23,12 +23,13 @@ const games = computed(() => {
 
 const filterCategories = [
   { text: 'all' },
-  { text: 'indie' },
-  { text: 'shooter' },
-  { text: 'strategy' },
-  { text: 'platformer' },
   { text: 'action' },
-  { text: 'adventure' }
+  { text: 'adventure' },
+  { text: 'arcade' },
+  { text: 'indie' },
+  { text: 'platformer' },
+  { text: 'shooter' },
+  { text: 'strategy' }
 ]
 
 
@@ -73,8 +74,8 @@ async function getGameByGenre(genre) {
 
       <!-- SECTION buttons -->
       <div v-for="genre in filterCategories" :key="genre.text" class="d-flex flex-column col-12 col-md-6 col-lg-3 g-3">
-        <button @click.prevent="getGameByGenre(genre.text)" class="rounded genre-buttons text-uppercase text-light"
-          type="button">{{
+        <button @click.prevent="getGameByGenre(genre.text)"
+          class="rounded genre-buttons selectable text-uppercase text-light text-shadow" type="button">{{
             genre.text
           }}</button>
       </div>
@@ -99,13 +100,15 @@ async function getGameByGenre(genre) {
 
 <style lang="scss" scoped>
 .genre-buttons {
-  background-color: #BB0A0A;
   font-weight: bolder;
   box-shadow: 1px 2px 2px black;
+  background-color: rgba(187, 10, 10, 0.50);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
 }
 
 .bg-text {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.50);
   backdrop-filter: blur(8px);
   border-radius: 1rem;
 }
