@@ -4,15 +4,13 @@ import { profilesService } from "@/services/ProfilesService.js";
 import { reviewsService } from "@/services/ReviewsService.js";
 import { logger } from "@/utils/Logger.js";
 import Pop from "@/utils/Pop.js";
-import { computed, onMounted, watch } from "vue";
+import { computed, watch } from "vue";
 import { useRoute } from "vue-router";
 
 
 const route = useRoute()
 
-onMounted(() => {
-  // getReviewsByCreatorId()
-})
+
 
 watch(() => route.params.profileId, () => {
   getAllPublishedReviews()
@@ -23,7 +21,7 @@ watch(() => route.params.profileId, () => {
 const reviews = computed(() => AppState.reviews)
 const profile = computed(() => AppState.activeProfile)
 
-// const account = computed(() => AppState.account)
+
 
 
 
@@ -51,16 +49,6 @@ async function getProfileById() {
   }
 }
 
-// async function getReviewsByProfileId() {
-//   try {
-//     const profileId = route.params.profileId
-//     logger.log('getting of profile', profileId)
-//     await reviewsService.getReviewsByCreatorId(profileId)
-//   }
-//   catch (error) {
-//     Pop.error(error);
-//   }
-// }
 
 async function getAllPublishedReviews() {
   try {
