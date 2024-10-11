@@ -68,17 +68,16 @@ async function getGameByGenre(genre) {
 
 <template>
 
-  <div class="container-fluid">
-    <div class="row p-3">
-
-      <h2>Popular Games</h2>
+  <div class="container">
+    <div class="row">
 
       <!-- SECTION buttons -->
-      <div class="d-flex justify-content-around align-items-center">
+      <div class="d-flex justify-content-around align-items-center mt-5">
         <div v-for="genre in filterCategories" :key="genre.text">
-          <button @click.prevent="getGameByGenre(genre.text)" class="rounded genre-buttons" type="button">{{
-            genre.text
-          }}</button>
+          <button @click.prevent="getGameByGenre(genre.text)" class="rounded genre-buttons text-uppercase"
+            type="button">{{
+              genre.text
+            }}</button>
         </div>
       </div>
 
@@ -102,5 +101,16 @@ async function getGameByGenre(genre) {
   background-color: #BB0A0A;
   font-weight: bolder;
   box-shadow: 1px 2px 2px black;
+  width: 25dvh;
+}
+
+.bg-text {
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 5px black
 }
 </style>
