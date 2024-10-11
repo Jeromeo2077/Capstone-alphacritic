@@ -21,8 +21,8 @@
           </div>
           <div class="mt-3">
             <div class="fs-6">Cybersecurity geek looking for code in all the wrong places. Stock market and economic
-              data nerd. In a former life, I was paid to cause chaos and mayhem. Dennis Leary is my spirit animal. <i>Is
-                it possible to get a cup of coffee-flavored coffee anymore in this country? -Dennis Leary</i></div>
+              data nerd. In a former life, I was paid to cause chaos and mayhem. Denis Leary is my spirit animal. <i>Is
+                it possible to get a cup of coffee-flavored coffee anymore in this country? -Denis Leary</i></div>
           </div>
         </div>
       </div>
