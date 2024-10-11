@@ -70,7 +70,14 @@ class ReviewsService {
         
     await api.put(`api/reviews/${reviewId}/publish`, reviewToPublish)
 
-    return `Review ${reviewToPublish.isPublished ? 'Published' : 'Unpublished'}!`
+    if (reviewToPublish.isPublished == true) {
+      return `Review ${reviewToPublish} has been Published!`
+    } 
+    else {
+      return `Review ${reviewToPublish} has been Unpublished!`
+    }
+
+    
   }
 }
 
