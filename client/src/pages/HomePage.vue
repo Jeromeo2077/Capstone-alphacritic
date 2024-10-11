@@ -11,7 +11,6 @@ onMounted(() => {
 
 const sortBy = ref('alphaScoreAggregate')
 
-
 const reviewsAlphaScoreAggregate = computed(() => {
   return AppState.reviews.sort((a, b) => b[sortBy.value] - a[sortBy.value])
 })
