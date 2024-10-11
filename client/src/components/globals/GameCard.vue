@@ -19,11 +19,11 @@ const props = defineProps({
 <template>
 
   <RouterLink :to="{ name: 'GameDetails', params: { gameId: game.id } }">
-    <div class="card game-card">
+    <div class="card game-card bg-text text-light text-shadow mt-3">
       <img :src="game.background_image" class="card-img-top img-fluid game-card-image" alt="...">
       <div class="card-body">
-        <h5 class="card-title caudex-bold">{{ game.name }}</h5>
-        <p class="card-text">Release Date: {{ game.released }}</p>
+        <h5 class="card-title caudex-bold fs-6 text-center">{{ game.name }}</h5>
+        <p class="card-text fs-6 text-center">Release Date: {{ game.released }}</p>
       </div>
     </div>
   </RouterLink>
@@ -41,6 +41,16 @@ const props = defineProps({
   height: 35vh;
   object-fit: cover;
   object-position: center;
-  width: 449px;
+  width: 450px;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 5px black
+}
+
+.bg-text {
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
 }
 </style>
