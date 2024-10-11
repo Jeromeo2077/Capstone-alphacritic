@@ -50,10 +50,10 @@ async function getAllReviews() {
 
       <div class="col-md-12 mt-3">
         <div class="">
-          <div class="fw-bold fs-3 text-shadow text-light text-center">
+          <div class="fw-bold fs-3 text-shadow text-light mb-3">
             NEWEST ALPHA SCORES
           </div>
-          <section class="row bg-text p-3 mx-5">
+          <section class="row bg-text p-3">
 
             <div v-for="reviews in reviews" :key="reviews.id" class="col-lg-3 g-3">
               <ReviewCard :reviews="reviews" />
@@ -70,11 +70,11 @@ async function getAllReviews() {
 
       <div class="col-md-12 mt-5 mb-5">
         <div class="">
-          <div class="fw-bold fs-3 text-shadow text-light text-center">
+          <div class="fw-bold fs-3 text-shadow text-light mb-3">
             HIGHEST ALPHA SCORES
           </div>
 
-          <section class="row bg-text p-3 mx-5">
+          <section class="row bg-text p-3">
 
             <div v-for="reviews in reviews" :key="reviews.id" class="col-lg-3 g-3">
               <ReviewCard :reviews="reviews" />

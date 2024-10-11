@@ -17,12 +17,12 @@
         <div class="d-flex flex-column bg-text p-3 mt-3">
           <div class="d-flex align-items-center">
             <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img" alt="">
-            <div class="fs-1 fw-bold ms-3">CREATOR NAME</div>
+            <div class="fs-1 fw-bold ms-3">Jerome Otto</div>
           </div>
           <div class="mt-3">
-            <div class="fs-6">BIO: Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, sequi assumenda
-              soluta aliquid a deleniti modi placeat reprehenderit corrupti natus. Molestias optio quod dolor incidunt
-              culpa ratione porro ipsa blanditiis?</div>
+            <div class="fs-6">Cybersecurity geek looking for code in all the wrong places. Stock market and economic
+              data nerd. In a former life, I was paid to cause chaos and mayhem. Denis Leary is my spirit animal. <i>Is
+                it possible to get a cup of coffee-flavored coffee anymore in this country? -Denis Leary</i></div>
           </div>
         </div>
       </div>
