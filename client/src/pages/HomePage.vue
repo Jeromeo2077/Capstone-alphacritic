@@ -55,7 +55,7 @@ async function getAllReviews() {
           </div>
           <section class="row bg-text p-3 mx-5">
 
-            <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3 g-3">
+            <div v-for="reviews in reviews" :key="reviews.id" class="col-lg-3 g-3">
               <ReviewCard :reviews="reviews" />
             </div>
 
@@ -76,7 +76,7 @@ async function getAllReviews() {
 
           <section class="row bg-text p-3 mx-5">
 
-            <div v-for="reviews in reviews" :key="reviews.id" class="col-md-3 g-3">
+            <div v-for="reviews in reviews" :key="reviews.id" class="col-lg-3 g-3">
               <ReviewCard :reviews="reviews" />
             </div>
           </section>
