@@ -35,7 +35,7 @@ async function updateProfileDetails() {
     discordLink: '',
   }
 
-  // router.push({name: 'Profile', params: {profileId: account.id}})
+  router.push({ name: 'Profile', params: { profileId: account.value.id } })
 }
 
 

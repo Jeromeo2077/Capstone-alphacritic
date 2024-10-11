@@ -22,6 +22,8 @@ const editableReviewData = ref({
   alphaScoreAggregate: 0,
   gameId: route.params.gameId
 })
+
+
 function calcAlpha() {
   try {
     const alphaScoreData = editableReviewData.value
@@ -66,9 +68,9 @@ async function createReview() {
     Pop.meow(error)
     Pop.error(error);
   }
-
-
 }
+
+
 
 
 
