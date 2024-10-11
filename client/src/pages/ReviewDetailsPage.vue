@@ -68,7 +68,7 @@ async function publishReview() {
           <div>
             <img src="https://i.postimg.cc/Dyn42jwt/image-3.jpg" class="profile-img ms-3" alt="">
           </div>
-          <div class="mx-3 fw-bold fs-1">
+          <div class="mx-3 fw-bold fs-1 text-light text-shadow">
             Profile Name
           </div>
         </div>
@@ -85,18 +85,18 @@ async function publishReview() {
                 review.alphaScoreAggregate }}</span>
             </div>
           </div>
-          <div class="d-flex justify-content-between mt-5 mb-3">
+          <div class="d-flex justify-content-around mt-5 mb-3">
             <div>
-              <span class="fw-bold">STORY SCORE</span>
-              <span class="alphaScore-bg fw-bold mx-3 p-2">{{ review.storyScore }}</span>
+              <span class="fw-bold fs-3">STORY SCORE</span>
+              <span class="alphaScore-bg fw-bold mx-3 p-2 fs-3">{{ review.storyScore }}</span>
             </div>
             <div>
-              <span class="fw-bold">GAMEMPLAY SCORE</span>
-              <span class="alphaScore-bg fw-bold mx-3 p-2">{{ review.gameplayScore }}</span>
+              <span class="fw-bold fs-3">GAMEMPLAY SCORE</span>
+              <span class="alphaScore-bg fw-bold mx-3 p-2 fs-3">{{ review.gameplayScore }}</span>
             </div>
             <div>
-              <span class="fw-bold">GRAPHICS SCORE</span>
-              <span class="alphaScore-bg fw-bold mx-3 p-2">{{ review.graphicsScore }}</span>
+              <span class="fw-bold fs-3">GRAPHICS SCORE</span>
+              <span class="alphaScore-bg fw-bold mx-3 p-2 fs-3">{{ review.graphicsScore }}</span>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@ async function publishReview() {
     </section>
     <section class="row">
       <div class="col-md-12">
-        <div class="bg-text my-3">
+        <div class="bg-text text-light text-shadow m-3">
           <p class="p-3">{{ review.body }}</p>
         </div>
       </div>
@@ -126,15 +126,16 @@ async function publishReview() {
 }
 
 .profile-banner-img {
-  height: 15dvh;
+  height: 20dvh;
   width: 100%;
   background-color: #bb0a0a;
+  border-radius: 1rem;
 }
 
 .bg-text {
   background-color: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(8px);
-  border-radius: .5rem;
+  border-radius: 1rem;
 }
 
 .text-shadow {
@@ -143,13 +144,15 @@ async function publishReview() {
 
 .alphaScore-bg {
   background-color: #BB0A0A;
-  height: 10dvh;
-  width: 100%;
+  border-radius: .5rem;
+  min-width: 5dvh;
+  min-height: 5dvh;
 }
 
 .alphaScore-bg-two {
   background-color: #BB0A0A;
   height: 10dvh;
   width: 10dvh;
+  border-radius: .5rem;
 }
 </style>

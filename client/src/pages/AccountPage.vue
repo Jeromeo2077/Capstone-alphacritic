@@ -15,8 +15,8 @@ const editableProfileData = ref({
   coverImg: '',
   youtubeLink: '',
   twitchLink: '',
-  discordLink: '',
-  embedYoutubeLink: '',
+  // discordLink: '',
+  // embedYoutubeLink: '',
 })
 
 
@@ -32,11 +32,11 @@ async function updateProfileDetails() {
     coverImg: '',
     youtubeLink: '',
     twitchLink: '',
-    discordLink: '',
-    embedYoutubeLink: '',
+    // discordLink: '',
+    // embedYoutubeLink: '',
   }
 
-  router.push({ name: 'Profile', params: { profileId: account.value.id } })
+  // router.push({ name: 'Profile', params: { profileId: account.value.id } })
 }
 
 
@@ -83,12 +83,8 @@ async function updateProfileDetails() {
           <input v-model="editableProfileData.twitchLink" class="form-control input-body" id="twitchLink"
             name="twitchLink" type="string" minlength="1" maxlength="500" placeholder="Link your Twitch channel!">
         </div>
-        <div class="mb-3 text-center">
-          <label class="form-label text-light" for="discordLink">Link your Discord Channel</label>
-          <input v-model="editableProfileData.discordLink" class="form-control input-body" id="discordLink"
-            name="discordLink" type="string" minlength="1" maxlength="500" placeholder="Link your Discord channel!">
-        </div>
-        <div class="mb-3 text-center">
+
+        <!-- <div class="mb-3 text-center">
           <label class="form-label text-light" for="embedYoutubeLink">Embed a youtube video!</label>
           <input v-model="editableProfileData.embedYoutubeLink" class="form-control input-body" id="embedYoutubeLink"
             name="embedYoutubeLink" type="string" minlength="1" maxlength="500" placeholder="Embed a youtube video!">
@@ -98,7 +94,7 @@ async function updateProfileDetails() {
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+        </div> -->
         <div class="mb-3 d-flex align-items-center justify-content-center">
           <button class="rounded btn btn-success save-button">Save profile details!</button>
         </div>
