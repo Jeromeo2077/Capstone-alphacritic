@@ -29,4 +29,12 @@ export class Review {
     };
     return this.createdAt.toLocaleString('en-US');
   }
+
+  get customDate() {
+    const dateString = this.createdAt.toDateString()
+    const dateParts = dateString.split(' ')
+    const dateMonthDay = dateParts.slice(1, -1).join(' ')
+    return dateMonthDay
+  }
 }
+
