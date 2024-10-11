@@ -15,7 +15,7 @@ onMounted(() => {
 })
 
 watch(() => route.params.profileId, () => {
-  getAllReviews()
+  getAllPublishedReviews()
   getProfileById()
   getReviewsByCreatorId()
 }, { immediate: true })
@@ -62,9 +62,9 @@ async function getProfileById() {
 //   }
 // }
 
-async function getAllReviews() {
+async function getAllPublishedReviews() {
   try {
-    await reviewsService.getAllReviews()
+    await reviewsService.getAllPublishedReviews()
   }
   catch (error) {
     Pop.error(error);
