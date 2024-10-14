@@ -1,5 +1,7 @@
 import { reactive } from 'vue'
+// eslint-disable-next-line no-unused-vars
 import { Game } from './models/Game.js'
+// eslint-disable-next-line no-unused-vars
 import { Review } from "./models/Review.js"
 
 // NOTE AppState is a reactive object to contain app level data
